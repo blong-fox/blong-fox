@@ -3,76 +3,61 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>People</title>
-  <meta name="description" content="Current and former mentees, bio, service, and socials.">
+  <title>People | Brooke Long-Fox</title>
+  <meta name="description" content="Current and former mentees, bio, service, and socials — Long-Fox Lab.">
   <link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
+  <style>
+    :root {
+      --sea-green: #04A788;
+      --deep-blue: #0e1116;
+      --light-bg: #f8fafa;
+      --wave-opacity: 0.25;
+    }
 
-<nav aria-label="Primary">
-  <div class="inner">
-    <a class="brand" href="index.html" aria-label="Home">
-      <span class="dot" aria-hidden="true"></span> Brooke Long-Fox
-    </a>
-    <div class="links">
-      <a href="research.html">Research</a>
-      <a href="teaching.html">Teaching</a>
-      <a href="people.html">People</a>
-      <a href="publications.html">Publications</a>
-      <a href="news.html">News</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </div>
-</nav>
+    body {
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      margin: 0; padding: 0; background: var(--light-bg); color: #222;
+    }
 
-<header class="hero">
-  <div class="container">
-    <h1>People</h1>
-    <p class="lead">Current and former mentees, bio, service, and socials.</p>
-  </div>
-</header>
-<main>
-  <div class="container">
-    
-<h2>Current Students & Interns</h2>
-<div class="people-grid">
-  <article class="person">
-    <h3>Student Name</h3>
-    <p class="small">MS — Project: AI-assisted morphology curation.</p>
-  </article>
-  <article class="person">
-    <h3>Student Name</h3>
-    <p class="small">Undergrad — Project: PFAS pilot QA/QC.</p>
-  </article>
-</div>
+    /* --- Navigation --- */
+    nav { background: var(--deep-blue); color: #fff; padding: 0.75rem 2rem; }
+    nav .inner {
+      display: flex; justify-content: space-between; align-items: center;
+      max-width: 1100px; margin: 0 auto;
+    }
+    nav .brand { font-weight: 600; color: #fff; text-decoration: none; font-size: 1.2rem; }
+    nav .brand .dot { background: var(--sea-green); width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+    nav .links a { color: #fff; text-decoration: none; margin-left: 1.2rem; font-size: 0.95rem; transition: color 0.2s ease-in-out; }
+    nav .links a:hover, nav .links a[aria-current="page"] { color: var(--sea-green); }
 
-<h2>Alumni</h2>
-<ul class="clean">
-  <li>Alum Name — now at Organization (Year)</li>
-</ul>
+    /* --- Header --- */
+    header.hero {
+      background: linear-gradient(90deg, var(--deep-blue), #033);
+      color: #fff; padding: 3rem 1rem 0; text-align: center; position: relative; overflow: hidden;
+    }
+    header.hero h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    header.hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 2rem; color: #cfe8e5; }
 
-<h2>Bio & Service</h2>
-<p>Short bio; service and leadership (GWIS, ADVANCE, committees, outreach). Add bullets or paragraphs here.</p>
+    /* --- Wave divider (top) --- */
+    .wave { position: relative; height: 60px; overflow: hidden; line-height: 0; }
+    .wave svg { position: relative; display: block; width: calc(100% + 1.3px); height: 60px; }
+    .wave .shape-fill { fill: var(--sea-green); opacity: 0.4; }
 
-<h2>Social</h2>
-<ul>
-  <li>LinkedIn — <a href="#">/in/your-handle</a></li>
-  <li>Bluesky/X/Instagram — <a href="#">@your-handle</a></li>
-</ul>
+    /* --- Content --- */
+    .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+    h2, h3 { color: var(--deep-blue); }
+    a { color: var(--sea-green); text-decoration: none; transition: color 0.2s ease-in-out; }
+    a:hover { text-decoration: underline; color: #029f7f; }
 
-  </div>
-</main>
-<footer class="footer">
-  <div class="container small">
-    <div class="badges">
-      <span class="badge" href="https://orcid.org/0000-0002-2718-647X" target="_blank" rel="noopener">ORCID</span>
-      <span class="badge" href="https://scholar.google.com/citations?user=jc7uD0sAAAAJ&hl=en&oi=sra" target="_blank" rel="noopener">Google Scholar</span>
-      <span class="badge" href="https://www.researchgate.net/profile/Brooke-Long-Fox" target="_blank" rel="noopener">ResearchGate</span>
-      <span class="badge" href="https://www.linkedin.com/in/brookelongfox" target="_blank" rel="noopener">LinkedIn</span>
-      <span class="badge">GitHub</span>
-    </div>
-    <p>© 2025 Brooke L Long-Fox • <a href="mailto:brooke.long-fox@sdsmt.edu" style="text-decoration:none;">Contact</a> • 🌊 Connecting biodiversity, data, and people.</p>
-  </div>
-</footer>
-</body>
-</html>
+    /* --- People grid --- */
+    .people-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem; margin: 1rem 0 2rem;
+    }
+    .person {
+      background: #fff; border: 2px solid rgba(4,167,136,0.15);
+      border-radius: 10px; padding: 1rem 1.25rem;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .person:hover { border-color: var(--sea-green); box-shadow: 0 0 8px rgba(4,167,136,0.15); }
+    .person h3 { margin-top:
