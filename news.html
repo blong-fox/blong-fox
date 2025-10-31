@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>News | Brooke Long-Fox</title>
-  <meta name="description" content="Updates, talks, papers, lab milestones, and community work from Brooke Long-Fox.">
+  <meta name="description" content="Updates, talks, papers, fieldwork, infrastructure releases, and community milestones from Brooke Long-Fox.">
   <link rel="stylesheet" href="assets/style.css">
   <style>
     :root {
@@ -14,27 +14,20 @@
       --wave-opacity: 0.25;
     }
 
-    body {
-      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      margin: 0; padding: 0; background: var(--light-bg); color: #222;
-    }
+    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      margin: 0; padding: 0; background: var(--light-bg); color: #222; }
 
     /* --- Navigation --- */
     nav { background: var(--deep-blue); color: #fff; padding: 0.75rem 2rem; }
-    nav .inner {
-      display: flex; justify-content: space-between; align-items: center;
-      max-width: 1100px; margin: 0 auto;
-    }
+    nav .inner { display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; }
     nav .brand { font-weight: 600; color: #fff; text-decoration: none; font-size: 1.2rem; }
     nav .brand .dot { background: var(--sea-green); width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 6px; }
     nav .links a { color: #fff; text-decoration: none; margin-left: 1.2rem; font-size: 0.95rem; transition: color 0.2s ease-in-out; }
     nav .links a:hover, nav .links a[aria-current="page"] { color: var(--sea-green); }
 
     /* --- Header --- */
-    header.hero {
-      background: linear-gradient(90deg, var(--deep-blue), #033);
-      color: #fff; padding: 3rem 1rem 0; text-align: center; position: relative; overflow: hidden;
-    }
+    header.hero { background: linear-gradient(90deg, var(--deep-blue), #033);
+      color: #fff; padding: 3rem 1rem 0; text-align: center; position: relative; overflow: hidden; }
     header.hero h1 { font-size: 2rem; margin-bottom: 0.5rem; }
     header.hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 2rem; color: #cfe8e5; }
 
@@ -50,10 +43,7 @@
     a:hover { text-decoration: underline; color: #029f7f; }
 
     /* --- News controls --- */
-    .news-controls {
-      display: flex; align-items: center; gap: .75rem; flex-wrap: wrap;
-      margin-bottom: 1rem;
-    }
+    .news-controls { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; margin-bottom: 1rem; }
     .chip {
       display: inline-flex; align-items: center; gap: .35rem;
       background: #fff; border: 2px solid rgba(4,167,136,0.15);
@@ -64,10 +54,7 @@
     .chip[aria-pressed="true"] { background: rgba(4,167,136,.08); border-color: var(--sea-green); color: var(--sea-green); }
 
     /* --- News grid --- */
-    .news-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.2rem;
-    }
+    .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; }
     .news-card {
       background: #fff; border: 2px solid rgba(4,167,136,0.15); border-radius: 14px; padding: 1rem 1.1rem;
       display: flex; flex-direction: column; gap: .5rem; height: 100%;
@@ -86,28 +73,21 @@
     details.archive summary {
       list-style: none; cursor: pointer; font-weight: 600;
       padding: .6rem .8rem; border-radius: 10px; background: #fff; border: 2px solid rgba(4,167,136,0.15);
-      transition: border-color .2s, box-shadow .2s, color .2s;
-      color: var(--deep-blue);
+      transition: border-color .2s, box-shadow .2s, color .2s; color: var(--deep-blue);
     }
     details.archive[open] summary, details.archive summary:hover { border-color: var(--sea-green); box-shadow: 0 0 8px rgba(4,167,136,0.15); color: var(--sea-green); }
     .archive .news-grid { margin-top: 1rem; }
 
     /* --- Bottom wave (modern inverted) --- */
-    .wave-bottom {
-      position: relative; height: 70px; line-height: 0; overflow: hidden; margin-top: 2rem;
-    }
+    .wave-bottom { position: relative; height: 70px; line-height: 0; overflow: hidden; margin-top: 2rem; }
     .wave-bottom svg { position: relative; display: block; width: calc(100% + 1.3px); height: 70px; transform: rotate(180deg); }
     .wave-bottom .shape-fill { fill: var(--sea-green); opacity: 0.35; }
 
     /* --- Footer --- */
     footer { background: var(--deep-blue); color: #fff; padding: 1.5rem 2rem; }
-    footer .container {
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
-    }
+    footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
     footer .badges { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    footer .badges a, footer .badges span {
-      background: var(--sea-green); color: #fff; padding: 0.35rem 0.6rem; border-radius: 4px; font-size: 0.9rem; text-decoration: none;
-    }
+    footer .badges a, footer .badges span { background: var(--sea-green); color: #fff; padding: 0.35rem 0.6rem; border-radius: 4px; font-size: 0.9rem; text-decoration: none; }
     footer p a { color: var(--sea-green); text-decoration: none; }
   </style>
 </head>
@@ -149,7 +129,7 @@
 <main>
   <div class="container">
 
-    <!-- Quick filter (optional; pure client-side) -->
+    <!-- Quick filter -->
     <div class="news-controls" aria-label="Filter news by tag">
       <button class="chip" data-filter="all" aria-pressed="true">All</button>
       <button class="chip" data-filter="Publication">Publication</button>
@@ -157,113 +137,184 @@
       <button class="chip" data-filter="Field">Field</button>
       <button class="chip" data-filter="Infrastructure">Infrastructure</button>
       <button class="chip" data-filter="Community">Community</button>
+      <button class="chip" data-filter="Open Science">Open&nbsp;Science</button>
     </div>
 
     <!-- Latest -->
     <h2>Latest</h2>
     <section class="news-grid" id="latest">
-      <!-- Card example -->
-      <article class="news-card" data-tags="Publication,Infrastructure">
+
+      <!-- 23 Oct 2025 — GWIS Podcast -->
+      <article class="news-card" data-tags="Community">
         <div class="news-meta">
-          <time datetime="2025-10-29">Oct 29, 2025</time> • Publication
+          <time datetime="2025-10-23">Oct 23, 2025</time> • Community
         </div>
-        <h3 class="news-title">
-          AI-assisted morphological data curation preprint posted
-        </h3>
-        <p>We released our workflow for LLM-assisted extraction and human-in-the-loop validation of morphological matrices. Benchmarks + JSON schema + NEXUS export.</p>
+        <h3 class="news-title">GWIS Podcast ranked #4 on FeedSpot’s Women in Science list</h3>
+        <p>Grateful to the hosts and guests advancing women in STEM. Explore episodes and discover more shows uplifting women in science.</p>
+        <div class="news-tags">
+          <span class="tag">Community</span>
+          <span class="tag">GWIS</span>
+        </div>
+        <div class="news-actions">
+          <a href="https://open.spotify.com/show/36v0LKwZHCyTEvpcGcFhGl" target="_blank" rel="noopener">Listen on Spotify →</a>
+          <a href="https://podcast.feedspot.com/women_in_science_podcasts/" target="_blank" rel="noopener">Full list →</a>
+        </div>
+      </article>
+
+      <!-- 20 Oct 2025 — Open Access Week -->
+      <article class="news-card" data-tags="Community,Open Science">
+        <div class="news-meta">
+          <time datetime="2025-10-20">Oct 20, 2025</time> • Community
+        </div>
+        <h3 class="news-title">Open Access Week: “Who Owns Our Knowledge?”</h3>
+        <p>Open access makes research free to read (and often reuse), broadening global equity and accelerating discovery. Sharing results openly benefits everyone.</p>
+        <div class="news-tags">
+          <span class="tag">Community</span>
+          <span class="tag">Open&nbsp;Science</span>
+        </div>
+      </article>
+
+      <!-- 15 Oct 2025 — BioScience paper / podcast / open mic -->
+      <article class="news-card" data-tags="Publication,Community,Infrastructure,Open Science">
+        <div class="news-meta">
+          <time datetime="2025-10-15">Oct 15, 2025</time> • Publication
+        </div>
+        <h3 class="news-title">New paper: Integrating biological &amp; environmental data to solve key challenges</h3>
+        <p>A community-built roadmap (200+ stakeholders) for connecting biodiversity, environmental, and genomic data using FAIR and CARE principles.</p>
         <div class="news-tags">
           <span class="tag">Publication</span>
           <span class="tag">Infrastructure</span>
           <span class="tag">Open&nbsp;Science</span>
+          <span class="tag">Community</span>
         </div>
         <div class="news-actions">
-          <a href="https://doi.org/10.1101/2025.07.08.663621" target="_blank" rel="noopener">Read the preprint →</a>
+          <a href="https://doi.org/10.1093/biosci/biaf150" target="_blank" rel="noopener">Read the paper →</a>
+          <a href="https://bioscience-talks.aibs.org/episodes/biofair-to-solve-key-challenges" target="_blank" rel="noopener">Podcast →</a>
+          <a href="https://bcon.aibs.org/biofair/" target="_blank" rel="noopener">Open Mic info →</a>
         </div>
       </article>
 
-      <article class="news-card" data-tags="Community">
+      <!-- 25 Sep 2025 — MorphoBank Connects recordings -->
+      <article class="news-card" data-tags="Community,Infrastructure,Talk">
         <div class="news-meta">
-          <time datetime="2025-10-28">Oct 28, 2025</time> • Community
+          <time datetime="2025-09-25">Sep 25, 2025</time> • Community
         </div>
-        <h3 class="news-title">MorphoBank Connects: 60+ participants across 16 countries</h3>
-        <p>Thank you to everyone who joined! Shared demos, volunteer recognition, and roadmap discussions for equitable, reusable morphology data.</p>
+        <h3 class="news-title">MorphoBank Connects: recordings now on YouTube</h3>
+        <p>Missed the conference? Watch sessions on FAIR morphology, AI curation, open publishing, and our hands-on MorphoBank workshop.</p>
         <div class="news-tags">
           <span class="tag">Community</span>
-          <span class="tag">MorphoBank</span>
-        </div>
-        <div class="news-actions">
-          <a href="#" target="_blank" rel="noopener">Slides/notes (coming soon) →</a>
-        </div>
-      </article>
-
-      <article class="news-card" data-tags="Field,Community">
-        <div class="news-meta">
-          <time datetime="2025-09-15">Sep 15, 2025</time> • Field
-        </div>
-        <h3 class="news-title">Kootenai River floodplain reconnection monitoring</h3>
-        <p>Seasonal reconnection sampling underway with partners—tracking N:P balance, production, and export of lower-trophic biomass to mainstem habitats.</p>
-        <div class="news-tags">
-          <span class="tag">Field</span>
-          <span class="tag">Aquatic&nbsp;Ecology</span>
-        </div>
-        <div class="news-actions">
-          <a href="#" target="_blank" rel="noopener">Project page →</a>
-        </div>
-      </article>
-
-      <article class="news-card" data-tags="Talk">
-        <div class="news-meta">
-          <time datetime="2025-08-12">Aug 12, 2025</time> • Talk
-        </div>
-        <h3 class="news-title">Invited talk: Authorship transparency &amp; FAIR morphology</h3>
-        <p>Discussed CRediT, reuse-ready data, and aligning society practices with open-science infrastructure.</p>
-        <div class="news-tags">
+          <span class="tag">Infrastructure</span>
           <span class="tag">Talk</span>
-          <span class="tag">Open&nbsp;Science</span>
         </div>
         <div class="news-actions">
-          <a href="#" target="_blank" rel="noopener">Abstract/recording →</a>
+          <a href="https://www.youtube.com/@morphobank/featured" target="_blank" rel="noopener">Watch the playlist →</a>
         </div>
       </article>
+
+      <!-- 23 Sep 2025 — MorphoBank 2000+ projects -->
+      <article class="news-card" data-tags="Infrastructure,Community">
+        <div class="news-meta">
+          <time datetime="2025-09-23">Sep 23, 2025</time> • Infrastructure
+        </div>
+        <h3 class="news-title">MorphoBank surpasses 2,000 projects</h3>
+        <p>Thousands of researchers contributing open, reusable morphology data—fueling transparent, reproducible science. Honored to be part of this community.</p>
+        <div class="news-tags">
+          <span class="tag">Infrastructure</span>
+          <span class="tag">Community</span>
+        </div>
+      </article>
+
+      <!-- 15 Sep 2025 — MorphoBank Connects schedule live -->
+      <article class="news-card" data-tags="Community,Talk,Infrastructure">
+        <div class="news-meta">
+          <time datetime="2025-09-15">Sep 15, 2025</time> • Community
+        </div>
+        <h3 class="news-title">MorphoBank Connects 2025 – Full schedule is live</h3>
+        <p>Two days online (Sept 18–19): FAIR data, morphology, AI tools, deep-sea taxonomy, keynote by Dr. Maureen O’Leary, workshop + support.</p>
+        <div class="news-tags">
+          <span class="tag">Community</span>
+          <span class="tag">Talk</span>
+          <span class="tag">Infrastructure</span>
+        </div>
+        <div class="news-actions">
+          <a href="https://lnkd.in/ezd794j4" target="_blank" rel="noopener">Register →</a>
+          <a href="https://lnkd.in/eEepuy6N" target="_blank" rel="noopener">Program →</a>
+        </div>
+      </article>
+
     </section>
 
     <!-- Archive by year -->
     <details class="archive" open>
       <summary>Archive — 2025</summary>
       <section class="news-grid" id="archive-2025">
-        <article class="news-card" data-tags="Infrastructure">
+
+        <!-- 12 Sep 2025 — GWIS National Council -->
+        <article class="news-card" data-tags="Community">
           <div class="news-meta">
-            <time datetime="2025-06-10">Jun 10, 2025</time> • Infrastructure
+            <time datetime="2025-09-12">Sep 12, 2025</time> • Community
           </div>
-          <h3 class="news-title">MorphoBank data-mining pilot updates</h3>
-          <p>Standards-aligned curation and mining to improve reuse and reproducibility across morphological datasets.</p>
+          <h3 class="news-title">First GWIS National Council meeting (2025–2026)</h3>
+          <p>Launching the year with our national leaders—and inviting members to apply for open roles: Editor, Parliamentarian, and AAAS Representative.</p>
           <div class="news-tags">
-            <span class="tag">Infrastructure</span>
-            <span class="tag">MorphoBank</span>
-          </div>
-          <div class="news-actions">
-            <a href="#" target="_blank" rel="noopener">Learn more →</a>
+            <span class="tag">Community</span>
+            <span class="tag">GWIS</span>
           </div>
         </article>
 
-        <article class="news-card" data-tags="Publication">
+        <!-- 28 Jul 2025 — SORTEE blog -->
+        <article class="news-card" data-tags="Community,Open Science,Talk">
           <div class="news-meta">
-            <time datetime="2025-05-20">May 20, 2025</time> • Publication
+            <time datetime="2025-07-28">Jul 28, 2025</time> • Community
           </div>
-          <h3 class="news-title">ADVANCE: Empower through Inclusivity (journal)</h3>
-          <p>New paper on leadership programming and institutionalization beyond award periods.</p>
+          <h3 class="news-title">Conversation with SORTEE: open science &amp; DEI</h3>
+          <p>Grateful for the chance to discuss equitable open-science practices and current challenges facing researchers.</p>
           <div class="news-tags">
-            <span class="tag">Publication</span>
-            <span class="tag">ADVANCE</span>
+            <span class="tag">Community</span>
+            <span class="tag">Open&nbsp;Science</span>
+            <span class="tag">Talk</span>
           </div>
           <div class="news-actions">
-            <a href="https://doi.org/10.5399/osu/ADVJRNL.6.1.4" target="_blank" rel="noopener">Read →</a>
+            <a href="https://sortee.org/blog/2025/07/28/2025_ecr_asks_brooke_long-fox/" target="_blank" rel="noopener">Read the post →</a>
           </div>
         </article>
+
+        <!-- 24 Jul 2025 — MorphoBank Connects CFA -->
+        <article class="news-card" data-tags="Community,Infrastructure,Talk">
+          <div class="news-meta">
+            <time datetime="2025-07-24">Jul 24, 2025</time> • Community
+          </div>
+          <h3 class="news-title">MorphoBank Connects: call for abstracts</h3>
+          <p>We invited talks on FAIR morphology, data stewardship, and tools. Thanks to everyone who submitted!</p>
+          <div class="news-tags">
+            <span class="tag">Community</span>
+            <span class="tag">Infrastructure</span>
+            <span class="tag">Talk</span>
+          </div>
+          <div class="news-actions">
+            <a href="https://lnkd.in/eauWAuEm" target="_blank" rel="noopener">Original call →</a>
+          </div>
+        </article>
+
+        <!-- 18 Jul 2025 — Kootenai fieldwork -->
+        <article class="news-card" data-tags="Field,Community">
+          <div class="news-meta">
+            <time datetime="2025-07-18">Jul 18, 2025</time> • Field
+          </div>
+          <h3 class="news-title">Kootenai River: nutrient dynamics field week</h3>
+          <p>Field sampling with the Kunza Lab on how land use and river management shape N and P availability—key to ecosystem function and biodiversity.</p>
+          <div class="news-tags">
+            <span class="tag">Field</span>
+            <span class="tag">Community</span>
+          </div>
+          <div class="news-actions">
+            <a href="https://lnkd.in/e_8HW5cb" target="_blank" rel="noopener">Kunza et&nbsp;al. 2025 →</a>
+            <a href="https://lnkd.in/ebmTZy9P" target="_blank" rel="noopener">Stickney et&nbsp;al. 2021 →</a>
+          </div>
+        </article>
+
       </section>
     </details>
-
-    <!-- Add more <details> blocks for earlier years as needed -->
 
     <!-- Modern inverted wave before footer -->
     <div class="wave-bottom" aria-hidden="true">
@@ -289,7 +340,7 @@
   </div>
 </footer>
 
-<!-- Optional tiny script for tag filtering -->
+<!-- Tiny filter script -->
 <script>
   const chips = document.querySelectorAll('.chip');
   const cards = document.querySelectorAll('.news-card');
