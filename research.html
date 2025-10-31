@@ -4,35 +4,101 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Research & Projects | Brooke Long-Fox</title>
-  <meta name="description" content="Research themes, key projects, methods, and selected papers from the Long-Fox Lab.">
+  <meta name="description" content="Research themes, projects, and publications from the Long-Fox Lab — linking morphology, ecology, and open data for equitable science.">
   <link rel="stylesheet" href="assets/style.css">
-
-  <!-- Optional: light styling for details/summary -->
   <style>
-    details { border: 1px solid #e6e6e6; border-radius: 10px; padding: 1rem 1rem .25rem; background: #fff; margin-bottom: 1rem; }
-    details[open] { padding-bottom: 1rem; }
-    summary { cursor: pointer; list-style: none; font-weight: 600; display: flex; gap: .5rem; align-items: baseline; }
-    summary::-webkit-details-marker { display: none; }
-    .summary-meta { color: #555; font-weight: 400; }
-    .project { margin: .5rem 0 .25rem; }
-    .project summary { font-weight: 600; }
-    .muted { color: #666; }
-    .lead { color: #333; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }
-    .hero { background: #0e1116; color: #fff; }
-    .hero .lead { color: #ccd1d6; }
-    .readmore { text-decoration: underline; }
-    ul { margin: .5rem 0 1rem; }
+    :root {
+      --sea-green: #04A788;
+      --deep-blue: #0e1116;
+      --light-bg: #f8fafa;
+      --wave-opacity: 0.25;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      margin: 0; padding: 0; background: var(--light-bg); color: #222;
+    }
+
+    /* --- Navigation --- */
+    nav { background: var(--deep-blue); color: #fff; padding: 0.75rem 2rem; }
+    nav .inner {
+      display: flex; justify-content: space-between; align-items: center;
+      max-width: 1100px; margin: 0 auto;
+    }
+    nav .brand { font-weight: 600; color: #fff; text-decoration: none; font-size: 1.2rem; }
+    nav .brand .dot { background: var(--sea-green); width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+    nav .links a { color: #fff; text-decoration: none; margin-left: 1.2rem; font-size: 0.95rem; transition: color 0.2s ease-in-out; }
+    nav .links a:hover, nav .links a[aria-current="page"] { color: var(--sea-green); }
+
+    /* --- Header --- */
+    header.hero {
+      background: linear-gradient(90deg, var(--deep-blue), #033);
+      color: #fff; padding: 3rem 1rem 0; text-align: center; position: relative; overflow: hidden;
+    }
+    header.hero h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    header.hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 2rem; color: #cfe8e5; }
+
+    /* --- Wave divider (top) --- */
+    .wave { position: relative; height: 60px; overflow: hidden; line-height: 0; }
+    .wave svg { position: relative; display: block; width: calc(100% + 1.3px); height: 60px; }
+    .wave .shape-fill { fill: var(--sea-green); opacity: 0.4; }
+
+    /* --- Content --- */
+    .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+    h2, h3 { color: var(--deep-blue); }
+
+    /* --- Divider bar under theme headings --- */
+    .theme h3 { position: relative; padding-bottom: 0.5rem; margin-bottom: 1rem; }
+    .theme h3::after {
+      content: ""; display: block; width: 100px; height: 4px; border-radius: 2px;
+      background: linear-gradient(90deg, rgba(4,167,136,var(--wave-opacity)) 0%, var(--sea-green) 60%, rgba(4,167,136,var(--wave-opacity)) 100%);
+      margin-top: 6px; transition: width 0.3s ease-in-out;
+    }
+    .theme:hover h3::after { width: 160px; }
+
+    /* --- Dropdowns --- */
+    details {
+      background: #fff; border: 2px solid rgba(4,167,136,0.15); border-radius: 10px;
+      margin: 1rem 0; padding: 1rem 1.25rem; transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    details:hover { border-color: var(--sea-green); box-shadow: 0 0 8px rgba(4,167,136,0.15); }
+    summary { font-weight: 600; cursor: pointer; color: var(--deep-blue); list-style: none; transition: color 0.2s ease-in-out; }
+    summary:hover { color: var(--sea-green); }
+    details[open] summary { color: var(--sea-green); }
+
+    ul { margin-top: 0.5rem; padding-left: 1.25rem; }
+    a { color: var(--sea-green); text-decoration: none; transition: color 0.2s ease-in-out; }
+    a:hover { text-decoration: underline; color: #029f7f; }
+
+    /* --- Bottom wave (modern inverted) --- */
+    .wave-bottom {
+      position: relative; height: 70px; line-height: 0; overflow: hidden; margin-top: 2rem;
+    }
+    .wave-bottom svg { position: relative; display: block; width: calc(100% + 1.3px); height: 70px; transform: rotate(180deg); }
+    .wave-bottom .shape-fill { fill: var(--sea-green); opacity: 0.35; }
+
+    /* --- Footer --- */
+    footer { background: var(--deep-blue); color: #fff; padding: 1.5rem 2rem; }
+    footer .container {
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    footer .badges { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    footer .badges a, footer .badges span {
+      background: var(--sea-green); color: #fff; padding: 0.35rem 0.6rem; border-radius: 4px; font-size: 0.9rem; text-decoration: none;
+    }
+    footer p a { color: var(--sea-green); text-decoration: none; }
   </style>
 </head>
+
 <body>
 
+<!-- NAVIGATION -->
 <nav aria-label="Primary">
-  <div class="inner container" style="display:flex;justify-content:space-between;align-items:center;">
+  <div class="inner">
     <a class="brand" href="index.html" aria-label="Home">
       <span class="dot" aria-hidden="true"></span> Brooke Long-Fox
     </a>
-    <div class="links" style="display:flex;gap:1rem;">
+    <div class="links">
       <a href="research.html" aria-current="page">Research</a>
       <a href="teaching.html">Teaching</a>
       <a href="people.html">People</a>
@@ -43,286 +109,139 @@
   </div>
 </nav>
 
+<!-- HEADER -->
 <header class="hero">
   <div class="container">
     <h1>Research Themes & Projects</h1>
-    <p class="lead">I integrate paleobiology, aquatic ecology, and open data to understand and sustain life through time—linking morphology, environment, and ethical infrastructure.</p>
+    <p>I integrate paleobiology, aquatic ecology, and open data to understand and sustain life through time — linking morphology, environment, and ethical infrastructure.</p>
+  </div>
+
+  <!-- Wave divider (top) -->
+  <div class="wave" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M985.66,83.29c-56.74,8.79-113.46,17.86-170.2,26.08-91.47,13.65-182.94,27.11-274.41,28.59-93.59,1.52-187.19-9.44-280.78-20.52C169.07,106.57,84.54,95.83,0,85.09V0H1200V27.35C1117.42,48.88,1058.2,74.5,985.66,83.29Z" class="shape-fill"></path>
+    </svg>
   </div>
 </header>
 
+<!-- MAIN CONTENT -->
 <main>
   <div class="container">
-
-    <h2>Current & Ongoing Research Themes</h2>
+    <h2>Research Themes</h2>
 
     <!-- THEME 1 -->
-    <details open id="theme-paleo">
-      <summary>
-        <span class="title">Theme 1 — Conservation Paleobiology & Morphological Evolution</span>
-        <span class="summary-meta"> — Using morphology across modern and fossil records to infer stability and evolutionary history.</span>
-      </summary>
-
-      <p><strong>Focus:</strong> How organismal form, chemosymbiosis, and environment co-vary across ecological and geologic timescales; morphology as a lens for restoration and phylogeny.</p>
-      <ul>
-        <li><strong>Methods:</strong> Geometric morphometrics; morphological character matrices; integration with molecular phylogenies; live–dead comparisons.</li>
-      </ul>
-
-      <!-- Project: Lucinidae Dimensions -->
-      <details class="project" id="proj-lucinidae">
-        <summary>Dimensions of Lucinid Chemosymbiosis <span class="muted">— host shape, symbiont guilds, and environment</span></summary>
-        <p><strong>Data:</strong> Morphometric landmarks and curated character matrices (extant + extinct), integrated with molecular phylogenies where available.</p>
+    <section class="theme" id="theme-paleo">
+      <h3>Conservation Paleobiology &amp; Morphological Evolution</h3>
+      <details open>
+        <summary><strong>Project:</strong> Dimensions of Lucinid Chemosymbiotic Associations</summary>
+        <p><strong>Data:</strong> Morphometric landmarks and curated character matrices (extant + extinct), with integration to molecular phylogenies where available.</p>
         <ul>
-          <li>
-            <a href="https://doi.org/10.1080/08912963.2025.2516584" target="_blank" rel="noopener">
-              A Morphological Character Matrix Describing Shells from Extant and Extinct Lucinid Bivalves of the Western Atlantic
-            </a> — Long-Fox (2025)
-          </li>
-          <li>
-            <a href="https://doi.org/10.32942/X29059" target="_blank" rel="noopener">
-              Reanalyzing morphologic shell characters for use with molecular phylogenies to reconstruct the evolutionary history of the chemosymbiotic Lucinidae (Bivalvia)
-            </a> — Long-Fox & Anderson (preprint, in prep for <em>Cladistics</em>, 2025)
-          </li>
-          <li>
-            <a href="https://doi.org/10.32942/X29S57" target="_blank" rel="noopener">
-              Phylogenetic signal in shell shape for the chemosymbiotic Lucinidae (Bivalvia, Mollusca)
-            </a> — Long-Fox, Anderson, Kokesh, Paterson, Lim, Campbell & Engel (preprint, in prep for <em>Systematic Biology</em>, 2025)
-          </li>
-          <li>
-            <a href="https://doi.org/10.12688/wellcomeopenres.24087.1" target="_blank" rel="noopener">
-              The genome sequence of the woven lucine, <em>Lucinisca nassula</em> (Conrad, 1846)
-            </a> — Anderson, Campbell, Long-Fox, et&nbsp;al. (2025)
-          </li>
+          <li><a href="https://doi.org/10.1080/08912963.2025.2516584" target="_blank" rel="noopener">Historical Biology data paper</a></li>
+          <li><a href="https://doi.org/10.32942/X29059" target="_blank" rel="noopener">Cladistics preprint</a></li>
+          <li><a href="https://doi.org/10.32942/X29S57" target="_blank" rel="noopener">Systematic Biology preprint</a></li>
+          <li><a href="https://doi.org/10.12688/wellcomeopenres.24087.1" target="_blank" rel="noopener">Wellcome Open Research genome</a></li>
         </ul>
       </details>
-
-      <!-- Project: Western Atlantic Matrix -->
-      <details class="project" id="proj-westatlantic">
-        <summary>Western Atlantic Character Matrix <span class="muted">— curated extant + extinct shell characters (MorphoBank P4896)</span></summary>
-        <p>Open, reusable morphological character matrix supporting comparative and phylogenetic analyses across Lucinidae and allied bivalves. Deposited to MorphoBank for community reuse and extension.</p>
-      </details>
-
-      <h4>Selected Papers & Preprints</h4>
-      <ul>
-        <li>
-          <a href="https://doi.org/10.32942/X29059" target="_blank" rel="noopener">
-            Reanalyzing morphologic shell characters for use with molecular phylogenies to reconstruct the evolutionary history of the chemosymbiotic Lucinidae (Bivalvia)
-          </a> — Long-Fox & Anderson (preprint, in prep for <em>Cladistics</em>, 2025)
-        </li>
-        <li>
-          <a href="https://doi.org/10.32942/X29S57" target="_blank" rel="noopener">
-            Phylogenetic signal in shell shape for the chemosymbiotic Lucinidae (Bivalvia, Mollusca)
-          </a> — Long-Fox, Anderson, Kokesh, Paterson, Lim, Campbell & Engel (preprint, in prep for <em>Systematic Biology</em>, 2025)
-        </li>
-        <li>
-          <a href="https://doi.org/10.1080/08912963.2025.2516584" target="_blank" rel="noopener">
-            A Morphological Character Matrix Describing Shells from Extant and Extinct Lucinid Bivalves of the Western Atlantic
-          </a> — Long-Fox (2025)
-        </li>
-        <li>
-          <a href="https://doi.org/10.12688/wellcomeopenres.24087.1" target="_blank" rel="noopener">
-            The genome sequence of the woven lucine, <em>Lucinisca nassula</em> (Conrad, 1846)
-          </a> — Anderson, Campbell, Long-Fox, et&nbsp;al. (2025)
-        </li>
-        <li>
-          <a href="https://doi.org/10.3389/fevo.2022.933486" target="_blank" rel="noopener">
-            Testing live and live-dead intraspecific morphometric comparisons as proxies for seagrass stability
-          </a> — Anderson*, Long-Fox*, Paterson & Engel (2022)
-        </li>
-      </ul>
-    </details>
+    </section>
 
     <!-- THEME 2 -->
-    <details id="theme-aquatic">
-      <summary>
-        <span class="title">Theme 2 — Aquatic Ecology & Restoration</span>
-        <span class="summary-meta"> — Nutrients and contaminants as drivers of resilience from rivers to seagrass coasts.</span>
-      </summary>
-
-      <p><strong>Focus:</strong> Linking nutrient and contaminant dynamics to ecosystem resilience; pairing sensor-based field monitoring with targeted experiments and analysis to guide restoration and treatment.</p>
-      <ul>
-        <li><strong>Methods:</strong> River–floodplain monitoring; nutrient stoichiometry & metabolism (GPP/ER); water-quality time series; treatment-train evaluation (EO → IX).</li>
-      </ul>
-
-      <!-- Project: Kootenai -->
-      <details class="project" id="proj-kootenai">
-        <summary>Kootenai River Floodplain Reconnection <span class="muted">— nutrient cycling, productivity, water-quality</span></summary>
-        <p><strong>Design:</strong> Paired river–connector–wetland sampling across pre-connection and connection windows (hydrograph-defined), measuring water chemistry (N, P, C pools), chlorophyll-a, phytoplankton, and zooplankton.</p>
-        <p><strong>Rationale:</strong> Seasonal reconnection is expected to rebalance N:P, increase in-situ production, and export lower-trophic biomass and balanced nutrients to the mainstem.</p>
+    <section class="theme" id="theme-aquatic">
+      <h3>Aquatic Ecology &amp; Wetland Restoration</h3>
+      <details>
+        <summary><strong>Project:</strong> Kootenai River Floodplain Reconnection</summary>
+        <p><strong>Kootenai River:</strong> Seasonal floodplain reconnection is expected to rebalance N:P, increase in-situ production, and export lower-trophic biomass and balanced nutrients to the mainstem.</p>
       </details>
-
-      <!-- Project: PFAS -->
-      <details class="project" id="proj-pfas">
-        <summary>PFAS EO–IX Treatment Train <span class="muted">— mobile Ti<sub>4</sub>O<sub>7</sub> EO + IX polishing</span></summary>
-        <p><strong>Configuration:</strong> Mobile thin-film Ti<sub>4</sub>O<sub>7</sub> electro-oxidation (EO) with post-EO ion-exchange polishing (IX) in modular, parallel trains.</p>
-        <p><strong>Notes:</strong> EO destruction followed by IX removal across PFAS classes; post-EO filtration added to manage electrocoagulation particulates; chloride displacement observed during IX consistent with anion exchange.</p>
-        <!-- Add links to SOPs / preprints as you publish them -->
+      <details>
+        <summary><strong>Project:</strong> PFAS Treatment Train</summary>
+        <p><strong>PFAS:</strong> Pilot-scale electrochemical oxidation upstream of ion exchange, addressing field-deployable remediation of aqueous film-forming foam (AFFF) contaminants.</p>
       </details>
-
-      <h4>Selected Outputs (site summary)</h4>
-      <ul>
-        <li><em>Kootenai:</em> Indicators include balanced N:P during connection periods and increases in primary/secondary production.</li>
-        <li><em>PFAS:</em> Operational insights include post-EO filtration to manage particulates and IX chloride displacement during PFAS loading.</li>
-      </ul>
-    </details>
+    </section>
 
     <!-- THEME 3 -->
-    <details id="theme-fair">
-      <summary>
-        <span class="title">Theme 3 — Open, FAIR & Equitable Infrastructure</span>
-        <span class="summary-meta"> — Standards, repositories, and community guidelines for transparent, reusable data (FAIR + CARE).</span>
-      </summary>
-
-      <p><strong>Focus:</strong> Ethical and technical infrastructure for transparent, reproducible, and equitable research in biology and paleontology; repository workflows, identifiers, and governance—with targeted automation.</p>
-
-      <!-- Project: MorphoBank Infrastructure -->
-      <details class="project" id="proj-morphobank">
-        <summary>MorphoBank as a Data Repository <span class="muted">— sustainability, curation guidance, data-mining</span></summary>
-        <p>Repository sustainability and community practices for morphological data; standards-aligned curation and data-mining to improve reuse. (AI methods that power curation are detailed in Theme&nbsp;5.)</p>
+    <section class="theme" id="theme-fair">
+      <h3>Open &amp; Equitable Infrastructure</h3>
+      <p>Standards, repositories, and community guidelines for transparent, reusable data (FAIR + CARE).</p>
+      <details>
+        <summary><strong>Project:</strong> MorphoBank as a Data Repository</summary>
+        <p>Repository sustainability and community practices for morphological data; standards-aligned curation and data-mining to improve reuse and reproducibility.</p>
       </details>
-
-      <!-- Project: FAIR-TEE -->
-      <details class="project" id="proj-fairtee">
-        <summary>FAIR-TEE Workshop & Working Group <span class="muted">— FAIR, Transparent, Ethical & Equitable Paleontology</span></summary>
-        <p>Proposal in development (target Dec 15, 2025). Focus on practical guidelines, training, and governance that combine FAIR and CARE for paleontological data. <em>Contact to participate.</em></p>
+      <details>
+        <summary><strong>Project:</strong> PALEO-FAIR Workshop &amp; Working Group</summary>
+        <p>Community-driven initiative developing FAIR, ethical, and transparent practices for paleontological data sharing, curation, and governance.</p>
       </details>
-
-      <!-- Project: BIOFAIR -->
-      <details class="project" id="proj-biofair">
-        <summary>BIOFAIR Data Network <span class="muted">— cross-domain roadmap & listening sessions</span></summary>
-        <p><strong>Overview:</strong> BCoN and AIBS convened listening sessions and a cross-domain workshop to design a framework for a Building an Integrated, Open, Findable, Accessible, Interoperable, and Reusable (BIOFAIR) Data Network.</p>
-        <p><strong>Outputs:</strong> Roadmap emphasizing standards, controlled vocabularies, persistent identifiers, and equity/CARE-aligned governance; repository-ready templates.</p>
-        <p><a href="https://bcon.aibs.org/biofair/" target="_blank" rel="noopener">Project Website</a></p>
-      </details>
-
-      <h4>Selected Papers</h4>
-      <ul>
-        <li>
-          <a href="https://doi.org/10.3897/biss.8.135124" target="_blank" rel="noopener">
-            Addressing Global Biodiversity Challenges: Ensuring Long-Term Sustainability of Morphological Data Collection and Reuse through MorphoBank
-          </a> — Long-Fox, Andruchow-Colombo, Jariwala, O’Leary & Berardini (2024)
-        </li>
-        <li>
-          <a href="https://doi.org/10.1093/biosci/biaf150" target="_blank" rel="noopener">
-            Integrating biological and environmental data to solve key scientific and societal challenges
-          </a> — Kunkel*, Long-Fox*, Pittman*, et&nbsp;al. (2025)
-        </li>
-        <li>
-          <a href="https://doi.org/10.3897/biss.8.136104" target="_blank" rel="noopener">
-            BIOFAIR Data Network’s Listening Sessions for Engagement and Data Integration
-          </a> — Ellwood, Bentley, Thiers, et&nbsp;al. (2024)
-        </li>
-      </ul>
-    </details>
+    </section>
 
     <!-- THEME 4 -->
-    <details id="theme-equity">
-      <summary>
-        <span class="title">Theme 4 — Equity, Mentorship & Community</span>
-        <span class="summary-meta"> — Research on practice: authorship transparency, mentoring structures, and inclusive leadership.</span>
-      </summary>
-
-      <p><strong>Focus:</strong> Evidence-based interventions that broaden participation and credit in science. We use mixed-methods evaluation and program assessment to quantify outcomes of mentoring structures, leadership development, and open-science pedagogy.</p>
-      <ul>
-        <li><strong>Methods:</strong> Surveys & interviews; pre/post training assessments; quasi-experimental designs; CRediT-based authorship tracking; implementation studies (preregistration, preprints, data availability).</li>
-      </ul>
-
-      <!-- Project: Leadership -->
-      <details class="project" id="proj-leadership">
-        <summary>Leadership <span class="muted">— Advocates & Allies, chair conversations, leadership cohorts</span></summary>
-        <p>Practice-to-research pipeline: design, implement, and evaluate leadership programming; track institutionalization beyond award periods.</p>
+    <section class="theme" id="theme-equity">
+      <h3>Equity, Mentorship &amp; Community</h3>
+      <p>Evidence-based structures that broaden participation and credit in science through mentoring, leadership, authorship transparency, and open-science education.</p>
+      <details>
+        <summary><strong>Project:</strong> Leadership</summary>
+        <p>Design, implement, and evaluate leadership programming (e.g., Advocates &amp; Allies, chair conversations, leadership cohorts); track institutionalization beyond award periods.</p>
       </details>
-
-      <!-- Project: Mentoring -->
-      <details class="project" id="proj-mentoring">
-        <summary>Mentoring <span class="muted">— peer-mentoring circles and society-level initiatives (GWIS, SORTEE)</span></summary>
-        <p>Facilitated peer-mentoring circles and society-level initiatives on authorship equity and open-science access with measurable outcomes.</p>
+      <details>
+        <summary><strong>Project:</strong> Mentoring</summary>
+        <p>Peer-mentoring circles and society-level initiatives (GWIS, SORTEE) emphasizing authorship equity, transparent contribution (CRediT), and open-science access.</p>
         <ul>
-          <li>
-            <a href="https://peer.asee.org/54127" target="_blank" rel="noopener">
-              Utilizing Campus Engagement for the Development of an ADVANCE Faculty Leadership Initiative
-            </a> — Kunza, Long-Fox & Roberts (CoNECD, 2025)
-          </li>
-          <li>
-            <a href="https://doi.org/10.5399/osu/ADVJRNL.6.1.4" target="_blank" rel="noopener">
-              Empower through Inclusivity: Developing Pathways to Success
-            </a> — Long-Fox, Anderson, Dolan, Nielsen, Rácz-Brunner, Roberts, Surovek & Kunza (ADVANCE Journal, 2025)
-          </li>
-          <li>
-            <a href="https://doi.org/10.5399/osu/ADVJRNL.6.1.1" target="_blank" rel="noopener">
-              Learning From Each Other: Faculty Peer Mentoring Circles at ADVANCE Institutions
-            </a> — McCarthy, Herbers, Kunza, Long-Fox & Zhang (ADVANCE Journal, 2025)
-          </li>
-          <li>
-            <a href="https://strategy.asee.org/44352" target="_blank" rel="noopener">
-              Work in Progress: Serendipity and Synergy in Promoting Equity
-            </a> — Surovek, Long-Fox, Williams, Rácz & Kunza (ASEE WIP, 2023)
-          </li>
+          <li><a href="https://peer.asee.org/54127" target="_blank" rel="noopener">ADVANCE Faculty Leadership Initiative (CoNECD, 2025)</a></li>
+          <li><a href="https://doi.org/10.5399/osu/ADVJRNL.6.1.4" target="_blank" rel="noopener">Empower through Inclusivity (ADVANCE Journal, 2025)</a></li>
+          <li><a href="https://doi.org/10.5399/osu/ADVJRNL.6.1.1" target="_blank" rel="noopener">Learning From Each Other (ADVANCE Journal, 2025)</a></li>
+          <li><a href="https://strategy.asee.org/44352" target="_blank" rel="noopener">Serendipity and Synergy in Promoting Equity (ASEE, 2023)</a></li>
         </ul>
       </details>
-    </details>
+    </section>
 
     <!-- THEME 5 -->
-    <details id="theme-ai">
-      <summary>
-        <span class="title">Theme 5 — AI for Biological & Paleontological Data</span>
-        <span class="summary-meta"> — LLM-assisted extraction, benchmarking, and human-in-the-loop curation for interoperable datasets.</span>
-      </summary>
-
-      <p><strong>Focus:</strong> Build and validate AI methods that turn unstructured morphological text into analysis-ready, interoperable datasets with transparent curator checkpoints; integrate with repositories to accelerate trustworthy reuse.</p>
-      <ul>
-        <li><strong>Methods:</strong> Large language models; schema/ontology mapping; persistent identifiers; benchmarking & bias audits; human-in-the-loop evaluation.</li>
-      </ul>
-
-      <!-- Project: MatrixCurator -->
-      <details class="project" id="proj-matrixcurator">
-        <summary>MatrixCurator <span class="muted">— reconstruct NEXUS <code>CHARACTERS/CHARSTATELABELS</code> and merge with matrix-only deposits</span></summary>
-        <p><strong>Pipeline:</strong> Pre-processing → LLM retrieval/extraction → validation checks → JSON schema → NEXUS; curator review checkpoints ensure transparency and accountability. Integrated with MorphoBank workflows.</p>
+    <section class="theme" id="theme-ai">
+      <h3>AI for Biological &amp; Paleontological Data</h3>
+      <p>LLM-assisted extraction, benchmarking, and human-in-the-loop curation to convert unstructured morphological text into interoperable, analysis-ready datasets.</p>
+      <details>
+        <summary><strong>Project:</strong> MatrixCurator</summary>
+        <p><strong>Pipeline:</strong> Pre-processing → LLM retrieval/extraction → validation checks → JSON schema → NEXUS; curator review checkpoints ensure transparency and accountability.</p>
         <ul>
-          <li>
-            <a href="https://doi.org/10.1101/2025.07.08.663621" target="_blank" rel="noopener">
-              Advancing FAIR Data Management through AI-Assisted Curation of Morphological Data Matrices
-            </a> — Jariwala, Long-Fox & Berardini (preprint, in review at <em>PLOS ONE</em>, 2025)
-          </li>
+          <li><a href="https://doi.org/10.1101/2025.07.08.663621" target="_blank" rel="noopener">AI-Assisted Curation of Morphological Data Matrices (preprint, 2025)</a></li>
         </ul>
       </details>
-
-      <!-- Project: Bias & Benchmarking -->
-      <details class="project" id="proj-benchmarking">
-        <summary>Bias & Benchmarking in Morphology NLP <span class="muted">— taxa, vocabularies, document formats</span></summary>
-        <p>Systematic evaluation of LLM performance across taxonomic groups and document types; error typologies and mitigation strategies; expert gold-standard validation.</p>
+      <details>
+        <summary><strong>Project:</strong> Bias &amp; Benchmarking in Morphology NLP</summary>
+        <p>Systematic evaluation across taxa and document formats; error typologies, bias checks, and mitigation strategies with expert validation.</p>
       </details>
-
-      <!-- Project: Entity Resolution -->
-      <details class="project" id="proj-entity">
-        <summary>Cross-Repository Entity Resolution <span class="muted">— link taxa, specimens, characters, datasets (PIDs & provenance)</span></summary>
-        <p>Record-linkage across MorphoBank and aggregators using persistent identifiers and provenance tracking to support interoperable reuse.</p>
+      <details>
+        <summary><strong>Project:</strong> Cross-Repository Entity Resolution</summary>
+        <p>Link taxa, specimens, characters, and datasets across repositories using persistent identifiers and provenance tracking to support FAIR reuse.</p>
       </details>
-    </details>
+    </section>
 
-    <h2>Past Research Projects</h2>
-    <p>Older projects and completed grants (with persistent identifiers and downloadable datasets) will be cataloged here.</p>
-
-    <hr>
-
+    <!-- ACKNOWLEDGEMENTS -->
     <h2>Acknowledgements</h2>
     <p>Our research has been supported by agencies and foundations including (add specific programs and grants). Student travel and research have been supported by professional societies and generous donors.</p>
 
+    <!-- LAND ACKNOWLEDGEMENT -->
     <h2>Land Acknowledgement</h2>
-    <p>We acknowledge that our field research occurs on the traditional lands of many Indigenous Nations. We seek to learn from and respect Indigenous stewardship practices and histories, and to translate that learning into our research design, partnerships, and data sharing. A useful starting resource is <a href="https://native-land.ca/" target="_blank" rel="noopener">Native-Land.ca</a>.</p>
+    <p>We acknowledge that our field research occurs on the traditional lands of many Indigenous Nations. We seek to learn from and respect Indigenous stewardship practices and histories, and to translate that learning into our research design, partnerships, and data sharing. A useful starting resource is
+      <a href="https://native-land.ca/" target="_blank" rel="noopener">Native-Land.ca</a>.
+    </p>
 
+    <!-- Modern inverted wave before footer -->
+    <div class="wave-bottom" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44C200.22,76.61,79.05,96.79,0,108.29V120H1200V0C1130.9,14.32,1061.8,28.64,970.68,39.46,855,53.37,740.29,60.6,625.58,60.43,524.18,60.28,422.78,40.53,321.39,56.44Z" class="shape-fill"></path>
+      </svg>
+    </div>
   </div>
 </main>
 
-<footer class="footer">
-  <div class="container small" style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;">
-    <div class="badges" style="display:flex;gap:.5rem;flex-wrap:wrap;">
-      <a class="badge" href="https://orcid.org/0000-0002-2718-647X" target="_blank" rel="noopener">ORCID</a>
-      <a class="badge" href="https://scholar.google.com/citations?user=jc7uD0sAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
-      <a class="badge" href="https://www.researchgate.net/profile/Brooke-Long-Fox" target="_blank" rel="noopener">ResearchGate</a>
-      <a class="badge" href="https://www.linkedin.com/in/brookelongfox" target="_blank" rel="noopener">LinkedIn</a>
-      <span class="badge">GitHub</span>
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="badges">
+      <a href="https://orcid.org/0000-0002-2718-647X" target="_blank" rel="noopener">ORCID</a>
+      <a href="https://scholar.google.com/citations?user=jc7uD0sAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://www.researchgate.net/profile/Brooke-Long-Fox" target="_blank" rel="noopener">ResearchGate</a>
+      <a href="https://www.linkedin.com/in/brookelongfox" target="_blank" rel="noopener">LinkedIn</a>
+      <span>GitHub</span>
     </div>
-    <p>© 2025 Brooke L. Long-Fox • <a href="mailto:brooke.long-fox@sdsmt.edu" style="text-decoration:none;">Contact</a> • 🌊 Connecting biodiversity, data, and people.</p>
+    <p>© 2025 Brooke L. Long-Fox • <a href="mailto:brooke.long-fox@sdsmt.edu">Contact</a> • 🌊 Connecting biodiversity, data, and people.</p>
   </div>
 </footer>
 
