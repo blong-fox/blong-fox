@@ -4,125 +4,61 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Connect | Brooke Long-Fox</title>
-  <meta name="description" content="Connect with Brooke Long-Fox — email, LinkedIn, ORCID, Google Scholar, ResearchGate, and organizations.">
+  <meta name="description" content="Connect with Brooke Long-Fox — email, social media, scholarly profiles, and professional societies.">
   <link rel="stylesheet" href="assets/style.css">
   <style>
     :root {
-      --sea-green: #04A788;
-      --deep-blue: #0e1116;
-      --light-bg: #f8fafa;
-      --wave-opacity: 0.25;
+      --sea-green:#04A788; --deep-blue:#0e1116; --light-bg:#f8fafa;
     }
-
-    body {
-      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      margin: 0; padding: 0; background: var(--light-bg); color: #222;
-    }
-
-    /* --- Navigation --- */
-    nav { background: var(--deep-blue); color: #fff; padding: 0.75rem 2rem; }
-    nav .inner { display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; }
-    nav .brand { font-weight: 600; color: #fff; text-decoration: none; font-size: 1.2rem; }
-    nav .brand .dot { background: var(--sea-green); width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 6px; }
-    nav .links a { color: #fff; text-decoration: none; margin-left: 1.2rem; font-size: 0.95rem; transition: color 0.2s ease-in-out; }
-    nav .links a:hover, nav .links a[aria-current="page"] { color: var(--sea-green); }
-
-    /* --- Header --- */
-    header.hero {
-      background: linear-gradient(90deg, var(--deep-blue), #033);
-      color: #fff; padding: 3rem 1rem 0; text-align: center; position: relative; overflow: hidden;
-    }
-    header.hero h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-    header.hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 2rem; color: #cfe8e5; }
-
-    /* --- Wave divider (top) --- */
-    .wave { position: relative; height: 60px; overflow: hidden; line-height: 0; }
-    .wave svg { position: relative; display: block; width: calc(100% + 1.3px); height: 60px; }
-    .wave .shape-fill { fill: var(--sea-green); opacity: 0.4; }
-
-    /* --- Content --- */
-    .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
-    h2, h3 { color: var(--deep-blue); }
-    a { color: var(--sea-green); text-decoration: none; transition: color 0.2s ease-in-out; }
-    a:hover { text-decoration: underline; color: #029f7f; }
-
-    /* --- Cards --- */
-    .grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1rem; margin-top: 1rem;
-    }
-    .card {
-      background: #fff; border: 2px solid rgba(4,167,136,0.15);
-      border-radius: 14px; padding: 1rem 1.2rem;
-      transition: border-color .25s, box-shadow .25s, transform .05s;
-      display: flex; flex-direction: column; gap: .5rem;
-    }
-    .card:hover { border-color: var(--sea-green); box-shadow: 0 4px 18px rgba(4,167,136,0.15); transform: translateY(-1px); }
-    .card h3 { margin: .2rem 0; font-size: 1.05rem; }
-    .card p { margin: 0; color: #333; }
-    .meta { font-size: .92rem; color: #555; }
-    .actions { margin-top: .35rem; display: flex; flex-wrap: wrap; gap: .5rem; }
-    .btn {
-      display: inline-block; border: 2px solid var(--sea-green); color: var(--sea-green);
-      background: transparent; border-radius: 999px; padding: .35rem .7rem; font-size: .9rem;
-      text-decoration: none; transition: background .2s, color .2s;
-    }
-    .btn:hover { background: var(--sea-green); color: #fff; text-decoration: none; }
-
-    /* --- Icon bubbles --- */
-    .icon {
-      width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
-      background: rgba(4,167,136,.12); border: 1px solid rgba(4,167,136,.3); margin-right: .4rem;
-      font-weight: 700; color: var(--sea-green);
-    }
+    body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;background:var(--light-bg);color:#222}
+    nav{background:var(--deep-blue);color:#fff;padding:.75rem 2rem}
+    nav .inner{display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto}
+    nav .brand{font-weight:600;color:#fff;text-decoration:none;font-size:1.2rem}
+    nav .brand .dot{background:var(--sea-green);width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:6px}
+    nav .links a{color:#fff;text-decoration:none;margin-left:1.2rem;font-size:.95rem;transition:color .2s}
+    nav .links a:hover,nav .links a[aria-current="page"]{color:var(--sea-green)}
+    header.hero{background:linear-gradient(90deg,var(--deep-blue),#033);color:#fff;padding:3rem 1rem 0;text-align:center}
+    header.hero h1{font-size:2rem;margin-bottom:.5rem}
+    header.hero p{font-size:1.1rem;max-width:700px;margin:0 auto 2rem;color:#cfe8e5}
+    .wave{height:60px;overflow:hidden;line-height:0}
+    .wave svg{display:block;width:calc(100% + 1.3px);height:60px}
+    .wave .shape-fill{fill:var(--sea-green);opacity:.4}
+    .container{max-width:1100px;margin:0 auto;padding:2rem 1.5rem}
+    h2,h3{color:var(--deep-blue)}
+    a{color:var(--sea-green);text-decoration:none}
+    a:hover{text-decoration:underline;color:#029f7f}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem}
+    .card{background:#fff;border:2px solid rgba(4,167,136,.15);border-radius:14px;padding:1rem 1.2rem;transition:border-color .25s,box-shadow .25s,transform .05s;display:flex;flex-direction:column;gap:.5rem}
+    .card:hover{border-color:var(--sea-green);box-shadow:0 4px 18px rgba(4,167,136,.15);transform:translateY(-1px)}
+    .meta{font-size:.92rem;color:#555}
+    .actions{margin-top:.35rem;display:flex;flex-wrap:wrap;gap:.5rem}
+    .btn{display:inline-block;border:2px solid var(--sea-green);color:var(--sea-green);border-radius:999px;padding:.35rem .7rem;font-size:.9rem;text-decoration:none;transition:background .2s,color .2s}
+    .btn:hover{background:var(--sea-green);color:#fff}
+    .icon{width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(4,167,136,.12);border:1px solid rgba(4,167,136,.3);margin-right:.4rem;font-weight:700;color:var(--sea-green)}
 
     /* --- Organizations --- */
-    .orgs { padding: 1rem 0 0; }
-    .org-grid { display:grid; gap:1rem; grid-template-columns: repeat(12, 1fr); }
-    .org-card {
-      grid-column: span 12; display:grid; gap:.8rem; align-items:center;
-      grid-template-columns: 90px 1fr auto; padding: .9rem 1rem; background:#fff;
-      border:2px solid rgba(4,167,136,.15); border-radius:12px; transition:border-color .25s, box-shadow .25s;
-    }
-    .org-card:hover { border-color:#04A788; box-shadow:0 4px 18px rgba(4,167,136,.12); }
-    .org-media {
-      width:72px; height:72px; display:flex; align-items:center; justify-content:center;
-      border-radius:12px; background:linear-gradient(135deg, #04A78822, #04A78811);
-      border:1.5px solid rgba(4,167,136,.25); font-weight:700; color:#0e1116;
-    }
-    .org-body h3 { margin:.1rem 0 .3rem; font-size:1.02rem; }
-    .org-roles { display:flex; flex-wrap:wrap; gap:.35rem; margin:.1rem 0 .4rem; }
-    .role-chip {
-      display:inline-block; font-size:.8rem; padding:.15rem .5rem; border-radius:999px;
-      background:rgba(4,167,136,.12); border:1px solid rgba(4,167,136,.25);
-    }
-    .org-cta .btn { white-space: nowrap; }
-    @media (max-width: 900px){
-      .org-card { grid-template-columns: 72px 1fr; }
-      .org-cta { grid-column: 2 / -1; }
-    }
-
-    /* --- Bottom wave --- */
-    .wave-bottom { position: relative; height: 70px; line-height: 0; overflow: hidden; margin-top: 2rem; }
-    .wave-bottom svg { position: relative; display: block; width: calc(100% + 1.3px); height: 70px; transform: rotate(180deg); }
-    .wave-bottom .shape-fill { fill: var(--sea-green); opacity: 0.35; }
-
-    /* --- Footer --- */
-    footer { background: var(--deep-blue); color: #fff; padding: 1.5rem 2rem; }
-    footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    footer .badges { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    footer .badges a, footer .badges span { background: var(--sea-green); color: #fff; padding: 0.35rem 0.6rem; border-radius: 4px; font-size: 0.9rem; text-decoration: none; }
-    footer p a { color: var(--sea-green); text-decoration: none; }
+    .orgs{padding:1rem 0 0}
+    .org-grid{display:grid;gap:1rem;grid-template-columns:repeat(12,1fr)}
+    .org-card{grid-column:span 12;display:grid;gap:.8rem;align-items:center;grid-template-columns:90px 1fr auto;padding:.9rem 1rem;background:#fff;border:2px solid rgba(4,167,136,.15);border-radius:12px;transition:border-color .25s,box-shadow .25s}
+    .org-card:hover{border-color:#04A788;box-shadow:0 4px 18px rgba(4,167,136,.12)}
+    .org-media{width:72px;height:72px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:linear-gradient(135deg,#04A78822,#04A78811);border:1.5px solid rgba(4,167,136,.25);font-weight:700;color:#0e1116}
+    .org-roles{display:flex;flex-wrap:wrap;gap:.35rem;margin:.1rem 0 .4rem}
+    .role-chip{display:inline-block;font-size:.8rem;padding:.15rem .5rem;border-radius:999px;background:rgba(4,167,136,.12);border:1px solid rgba(4,167,136,.25)}
+    .wave-bottom{height:70px;overflow:hidden;margin-top:2rem}
+    .wave-bottom svg{width:calc(100% + 1.3px);height:70px;transform:rotate(180deg)}
+    .wave-bottom .shape-fill{fill:var(--sea-green);opacity:.35}
+    footer{background:var(--deep-blue);color:#fff;padding:1.5rem 2rem}
+    footer .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    footer .badges{display:flex;flex-wrap:wrap;gap:.4rem}
+    footer .badges a,footer .badges span{background:var(--sea-green);color:#fff;padding:.35rem .6rem;border-radius:4px;font-size:.9rem;text-decoration:none}
   </style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
+<!-- NAV -->
 <nav aria-label="Primary">
   <div class="inner">
-    <a class="brand" href="index.html" aria-label="Home">
-      <span class="dot" aria-hidden="true"></span> Brooke Long-Fox
-    </a>
+    <a class="brand" href="index.html"><span class="dot"></span>Brooke Long-Fox</a>
     <div class="links">
       <a href="research.html">Research</a>
       <a href="teaching.html">Teaching</a>
@@ -134,22 +70,16 @@
   </div>
 </nav>
 
-<!-- HEADER -->
 <header class="hero">
   <div class="container">
     <h1>Connect</h1>
-    <p>Say hello, follow along, or collaborate. Professional socials, scholar profiles, and organizations.</p>
+    <p>Say hello, follow along, or collaborate — find me on professional networks, scholar profiles, and within open-science societies.</p>
   </div>
-
-  <!-- Wave divider (top) -->
   <div class="wave" aria-hidden="true">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-      <path d="M985.66,83.29c-56.74,8.79-113.46,17.86-170.2,26.08-91.47,13.65-182.94,27.11-274.41,28.59-93.59,1.52-187.19-9.44-280.78-20.52C169.07,106.57,84.54,95.83,0,85.09V0H1200V27.35C1117.42,48.88,1058.2,74.5,985.66,83.29Z" class="shape-fill"></path>
-    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M985.66,83.29c-56.74,8.79-113.46,17.86-170.2,26.08-91.47,13.65-182.94,27.11-274.41,28.59-93.59,1.52-187.19-9.44-280.78-20.52C169.07,106.57,84.54,95.83,0,85.09V0H1200V27.35C1117.42,48.88,1058.2,74.5,985.66,83.29Z" class="shape-fill"/></svg>
   </div>
 </header>
 
-<!-- MAIN CONTENT -->
 <main>
   <div class="container">
 
@@ -158,9 +88,25 @@
       <article class="card">
         <h3><span class="icon">in</span>LinkedIn</h3>
         <p class="meta">Professional updates and community work.</p>
-        <div class="actions">
-          <a class="btn" href="https://www.linkedin.com/in/brookelongfox" target="_blank" rel="noopener">/in/brookelongfox</a>
-        </div>
+        <div class="actions"><a class="btn" href="https://www.linkedin.com/in/brookelongfox" target="_blank" rel="noopener">/in/brookelongfox</a></div>
+      </article>
+
+      <article class="card">
+        <h3><span class="icon">B</span>Bluesky</h3>
+        <p class="meta">Science, open data, and lab notes.</p>
+        <div class="actions"><a class="btn" href="https://bsky.app/profile/brookelongfox" target="_blank" rel="noopener">@brookelongfox</a></div>
+      </article>
+
+      <article class="card">
+        <h3><span class="icon">X</span>X / Twitter</h3>
+        <p class="meta">Occasional threads and conference live-notes.</p>
+        <div class="actions"><a class="btn" href="https://x.com/brookelongfox" target="_blank" rel="noopener">@brookelongfox</a></div>
+      </article>
+
+      <article class="card">
+        <h3><span class="icon">IG</span>Instagram</h3>
+        <p class="meta">Fieldwork snapshots and lab life.</p>
+        <div class="actions"><a class="btn" href="https://www.instagram.com/brooke.longfox/?hl=en" target="_blank" rel="noopener">@brooke.longfox</a></div>
       </article>
     </section>
 
@@ -168,26 +114,26 @@
     <section class="grid" aria-label="Scholarly profiles">
       <article class="card">
         <h3><span class="icon">O</span>ORCID</h3>
-        <p class="meta">Persistent ID for publications and funding.</p>
-        <div class="actions">
-          <a class="btn" href="https://orcid.org/0000-0002-2718-647X" target="_blank" rel="noopener">0000-0002-2718-647X</a>
-        </div>
+        <p class="meta">Persistent identifier for publications and funding.</p>
+        <div class="actions"><a class="btn" href="https://orcid.org/0000-0002-2718-647X" target="_blank" rel="noopener">0000-0002-2718-647X</a></div>
       </article>
 
       <article class="card">
         <h3><span class="icon">G</span>Google Scholar</h3>
         <p class="meta">Publications and citations.</p>
-        <div class="actions">
-          <a class="btn" href="https://scholar.google.com/citations?user=jc7uD0sAAAAJ" target="_blank" rel="noopener">Profile</a>
-        </div>
+        <div class="actions"><a class="btn" href="https://scholar.google.com/citations?user=jc7uD0sAAAAJ" target="_blank" rel="noopener">View profile</a></div>
       </article>
 
       <article class="card">
         <h3><span class="icon">RG</span>ResearchGate</h3>
         <p class="meta">Preprints and project updates.</p>
-        <div class="actions">
-          <a class="btn" href="https://www.researchgate.net/profile/Brooke-Long-Fox" target="_blank" rel="noopener">@Brooke-Long-Fox</a>
-        </div>
+        <div class="actions"><a class="btn" href="https://www.researchgate.net/profile/Brooke-Long-Fox" target="_blank" rel="noopener">@Brooke-Long-Fox</a></div>
+      </article>
+
+      <article class="card">
+        <h3><span class="icon">GH</span>GitHub</h3>
+        <p class="meta">Code, data workflows, and templates.</p>
+        <div class="actions"><a class="btn" href="https://github.com/blong-fox" target="_blank" rel="noopener">github.com/blong-fox</a></div>
       </article>
     </section>
 
@@ -203,59 +149,44 @@
       </article>
     </section>
 
-    <section class="orgs">
+    <!-- Organizations -->
+    <section class="orgs" aria-label="Organizations and leadership">
       <h2>Organizations &amp; Leadership</h2>
-      <p class="small">Societies and communities I serve and collaborate with.</p>
+      <p class="meta">Professional societies and open-science communities I help lead.</p>
 
       <div class="org-grid">
-        <!-- SORTEE -->
         <article class="org-card">
-          <div class="org-media" aria-hidden="true">SORTEE</div>
+          <div class="org-media">SORTEE</div>
           <div class="org-body">
-            <h3><a href="https://sortee.org/" target="_blank" rel="noopener">Society for Open, Reliable, and Transparent Ecology &amp; Evolution (SORTEE)</a></h3>
-            <div class="org-roles">
-              <span class="role-chip">DEI Chair</span>
-            </div>
-            <p class="small">Improving transparency, reliability, and inclusivity in EEB through open-science practice.</p>
+            <h3><a href="https://sortee.org/" target="_blank" rel="noopener">Society for Open, Reliable, and Transparent Ecology &amp; Evolution</a></h3>
+            <div class="org-roles"><span class="role-chip">DEI Chair</span></div>
+            <p class="small">Improving transparency, reliability, and inclusivity in ecology &amp; evolution through open-science practice.</p>
           </div>
-          <div class="org-cta">
-            <a class="btn" href="https://sortee.org/" target="_blank" rel="noopener">Visit SORTEE</a>
-          </div>
+          <div class="org-cta"><a class="btn" href="https://sortee.org/" target="_blank" rel="noopener">Visit SORTEE</a></div>
         </article>
 
-        <!-- GWIS -->
         <article class="org-card">
-          <div class="org-media" aria-hidden="true">GWIS</div>
+          <div class="org-media">GWIS</div>
           <div class="org-body">
             <h3><a href="https://www.gwis.org/" target="_blank" rel="noopener">Graduate Women in Science (GWIS)</a></h3>
-            <div class="org-roles">
-              <span class="role-chip">President (2025–2026)</span>
-            </div>
-            <p class="small">Advancing women in STEM via fellowships, chapters, mentoring, and leadership programs.</p>
+            <div class="org-roles"><span class="role-chip">President (2025–2026)</span></div>
+            <p class="small">Advancing women in STEM through fellowships, mentoring, and leadership development.</p>
           </div>
-          <div class="org-cta">
-            <a class="btn" href="https://www.gwis.org/" target="_blank" rel="noopener">Join GWIS</a>
-          </div>
+          <div class="org-cta"><a class="btn" href="https://www.gwis.org/" target="_blank" rel="noopener">Join GWIS</a></div>
         </article>
 
-        <!-- SSB -->
         <article class="org-card">
-          <div class="org-media" aria-hidden="true">SSB</div>
+          <div class="org-media">SSB</div>
           <div class="org-body">
             <h3><a href="https://www.systbio.org/" target="_blank" rel="noopener">Society of Systematic Biologists (SSB)</a></h3>
-            <div class="org-roles">
-              <span class="role-chip">DEIC Member</span>
-            </div>
-            <p class="small">Promoting integrative study of biological diversity, phylogeny, and evolution.</p>
+            <div class="org-roles"><span class="role-chip">DEIC Member</span></div>
+            <p class="small">Promoting integrative study of biodiversity, phylogeny, and evolution through inclusive collaboration.</p>
           </div>
-          <div class="org-cta">
-            <a class="btn" href="https://www.systbio.org/" target="_blank" rel="noopener">Explore SSB</a>
-          </div>
+          <div class="org-cta"><a class="btn" href="https://www.systbio.org/" target="_blank" rel="noopener">Explore SSB</a></div>
         </article>
       </div>
     </section>
 
-    <!-- Modern inverted wave before footer -->
     <div class="wave-bottom" aria-hidden="true">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M321.39,56.44C200.22,76.61,79.05,96.79,0,108.29V120H1200V0C1130.9,14.32,1061.8,28.64,970.68,39.46,855,53.37,740.29,60.6,625.58,60.43,524.18,60.28,422.78,40.53,321.39,56.44Z" class="shape-fill"></path>
@@ -265,7 +196,6 @@
   </div>
 </main>
 
-<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="badges">
@@ -273,12 +203,12 @@
       <a href="https://scholar.google.com/citations?user=jc7uD0sAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
       <a href="https://www.researchgate.net/profile/Brooke-Long-Fox" target="_blank" rel="noopener">ResearchGate</a>
       <a href="https://www.linkedin.com/in/brookelongfox" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/blong-fox" target="_blank" rel="noopener">GitHub</a>
     </div>
     <p>© 2025 Brooke L. Long-Fox • <a href="mailto:brooke.long-fox@sdsmt.edu">Contact</a> • 🌊 Connecting biodiversity, data, and people.</p>
   </div>
 </footer>
 
-<!-- Small script: copy email -->
 <script>
   document.getElementById('copyEmail')?.addEventListener('click', () => {
     const email = 'brooke.long-fox@sdsmt.edu';
