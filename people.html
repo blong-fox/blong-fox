@@ -13,7 +13,6 @@
       --light-bg: #f8fafa;
       --wave-opacity: 0.25;
     }
-
     body {
       font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       margin: 0; padding: 0; background: var(--light-bg); color: #222;
@@ -49,15 +48,203 @@
     a { color: var(--sea-green); text-decoration: none; transition: color 0.2s ease-in-out; }
     a:hover { text-decoration: underline; color: #029f7f; }
 
-    /* --- People grid --- */
-    .people-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem; margin: 1rem 0 2rem;
+    /* --- Tables --- */
+    .table-wrap { overflow-x: auto; margin: 1rem 0 2rem; }
+    table {
+      width: 100%; border-collapse: collapse; background: #fff;
+      border: 2px solid rgba(4,167,136,0.15); border-radius: 10px; overflow: hidden;
     }
-    .person {
-      background: #fff; border: 2px solid rgba(4,167,136,0.15);
-      border-radius: 10px; padding: 1rem 1.25rem;
-      transition: border-color 0.25s, box-shadow 0.25s;
+    caption { text-align: left; font-weight: 600; margin-bottom: 0.5rem; color: var(--deep-blue); }
+    th, td { padding: 0.75rem 0.9rem; text-align: left; vertical-align: top; }
+    thead th {
+      background: rgba(4,167,136,0.08); color: var(--deep-blue);
+      border-bottom: 1px solid rgba(4,167,136,0.2);
     }
-    .person:hover { border-color: var(--sea-green); box-shadow: 0 0 8px rgba(4,167,136,0.15); }
-    .person h3 { margin-top:
+    tbody tr + tr td { border-top: 1px solid rgba(4,167,136,0.12); }
+
+    /* --- Bottom wave (modern inverted) --- */
+    .wave-bottom {
+      position: relative; height: 70px; line-height: 0; overflow: hidden; margin-top: 2rem;
+    }
+    .wave-bottom svg { position: relative; display: block; width: calc(100% + 1.3px); height: 70px; transform: rotate(180deg); }
+    .wave-bottom .shape-fill { fill: var(--sea-green); opacity: 0.35; }
+
+    /* --- Footer --- */
+    footer { background: var(--deep-blue); color: #fff; padding: 1.5rem 2rem; }
+    footer .container {
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    footer .badges { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    footer .badges a, footer .badges span {
+      background: var(--sea-green); color: #fff; padding: 0.35rem 0.6rem; border-radius: 4px; font-size: 0.9rem; text-decoration: none;
+    }
+    footer p a { color: var(--sea-green); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav aria-label="Primary">
+  <div class="inner">
+    <a class="brand" href="index.html" aria-label="Home">
+      <span class="dot" aria-hidden="true"></span> Brooke Long-Fox
+    </a>
+    <div class="links">
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="people.html" aria-current="page">People</a>
+      <a href="publications.html">Publications</a>
+      <a href="news.html">News</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header class="hero">
+  <div class="container">
+    <h1>People</h1>
+    <p>Current and former mentees, bio, service, and socials.</p>
+  </div>
+
+  <!-- Wave divider (top) -->
+  <div class="wave" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M985.66,83.29c-56.74,8.79-113.46,17.86-170.2,26.08-91.47,13.65-182.94,27.11-274.41,28.59-93.59,1.52-187.19-9.44-280.78-20.52C169.07,106.57,84.54,95.83,0,85.09V0H1200V27.35C1117.42,48.88,1058.2,74.5,985.66,83.29Z" class="shape-fill"></path>
+    </svg>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main>
+  <div class="container">
+
+    <!-- CURRENT -->
+    <h2>Current Students &amp; Interns</h2>
+    <div class="table-wrap" role="region" aria-label="Current mentees" tabindex="0">
+      <table>
+        <caption>Active mentees</caption>
+        <thead>
+          <tr>
+            <th scope="col">Student</th>
+            <th scope="col">Role</th>
+            <th scope="col">Organization</th>
+            <th scope="col">Years</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Shreya Jariwala</td>
+            <td>Undergraduate intern</td>
+            <td>Phoenix Bioinformatics</td>
+            <td>2023–2025</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ALUMNI -->
+    <h2>Alumni &amp; Former Mentees</h2>
+    <div class="table-wrap" role="region" aria-label="Alumni mentees" tabindex="0">
+      <table>
+        <caption>Past interns and senior research students</caption>
+        <thead>
+          <tr>
+            <th scope="col">Student</th>
+            <th scope="col">Role</th>
+            <th scope="col">Organization</th>
+            <th scope="col">Years</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Anna Ziyan Su</td>
+            <td>Undergraduate intern</td>
+            <td>Phoenix Bioinformatics</td>
+            <td>2024</td>
+          </tr>
+          <tr>
+            <td>Joyce Song</td>
+            <td>Undergraduate intern</td>
+            <td>Phoenix Bioinformatics</td>
+            <td>2023</td>
+          </tr>
+          <tr>
+            <td>Bidane Martinez-Huerta</td>
+            <td>Undergraduate intern</td>
+            <td>Phoenix Bioinformatics</td>
+            <td>2022</td>
+          </tr>
+          <tr>
+            <td>Katherine Walton</td>
+            <td>Undergraduate intern</td>
+            <td>Phoenix Bioinformatics</td>
+            <td>2022</td>
+          </tr>
+          <tr>
+            <td>Nicholas Reid</td>
+            <td>Undergraduate senior research</td>
+            <td>South Dakota Mines</td>
+            <td>2018</td>
+          </tr>
+          <tr>
+            <td>Peter Delay</td>
+            <td>Undergraduate senior research</td>
+            <td>South Dakota Mines</td>
+            <td>2018</td>
+          </tr>
+          <tr>
+            <td>Ryan Bozer</td>
+            <td>Undergraduate senior research</td>
+            <td>South Dakota Mines</td>
+            <td>2018</td>
+          </tr>
+          <tr>
+            <td>Kelly Lubbers</td>
+            <td>Undergraduate research</td>
+            <td>South Dakota Mines</td>
+            <td><!-- year not specified --></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Bio & Service -->
+    <h2>Bio &amp; Service</h2>
+    <p>Short bio; service and leadership (GWIS, ADVANCE, committees, outreach). Add bullets or paragraphs here.</p>
+
+    <!-- Social -->
+    <h2>Social</h2>
+    <ul>
+      <li>LinkedIn — <a href="https://www.linkedin.com/in/brookelongfox" target="_blank" rel="noopener">/in/brookelongfox</a></li>
+      <li>ORCID — <a href="https://orcid.org/0000-0002-2718-647X" target="_blank" rel="noopener">0000-0002-2718-647X</a></li>
+      <li>Google Scholar — <a href="https://scholar.google.com/citations?user=jc7uD0sAAAAJ" target="_blank" rel="noopener">Profile</a></li>
+      <li>ResearchGate — <a href="https://www.researchgate.net/profile/Brooke-Long-Fox" target="_blank" rel="noopener">@Brooke-Long-Fox</a></li>
+    </ul>
+
+    <!-- Modern inverted wave before footer -->
+    <div class="wave-bottom" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44C200.22,76.61,79.05,96.79,0,108.29V120H1200V0C1130.9,14.32,1061.8,28.64,970.68,39.46,855,53.37,740.29,60.6,625.58,60.43,524.18,60.28,422.78,40.53,321.39,56.44Z" class="shape-fill"></path>
+      </svg>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="badges">
+      <a href="https://orcid.org/0000-0002-2718-647X" target="_blank" rel="noopener">ORCID</a>
+      <a href="https://scholar.google.com/citations?user=jc7uD0sAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://www.researchgate.net/profile/Brooke-Long-Fox" target="_blank" rel="noopener">ResearchGate</a>
+      <a href="https://www.linkedin.com/in/brookelongfox" target="_blank" rel="noopener">LinkedIn</a>
+      <span>GitHub</span>
+    </div>
+    <p>© 2025 Brooke L. Long-Fox • <a href="mailto:brooke.long-fox@sdsmt.edu">Contact</a> • 🌊 Connecting biodiversity, data, and people.</p>
+  </div>
+</footer>
+
+</body>
+</html>
