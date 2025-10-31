@@ -3,12 +3,117 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>News</title>
-  <meta name="description" content="Talks, fieldwork, preprints, and milestones.">
+  <title>News | Brooke Long-Fox</title>
+  <meta name="description" content="Updates, talks, papers, lab milestones, and community work from Brooke Long-Fox.">
   <link rel="stylesheet" href="assets/style.css">
+  <style>
+    :root {
+      --sea-green: #04A788;
+      --deep-blue: #0e1116;
+      --light-bg: #f8fafa;
+      --wave-opacity: 0.25;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      margin: 0; padding: 0; background: var(--light-bg); color: #222;
+    }
+
+    /* --- Navigation --- */
+    nav { background: var(--deep-blue); color: #fff; padding: 0.75rem 2rem; }
+    nav .inner {
+      display: flex; justify-content: space-between; align-items: center;
+      max-width: 1100px; margin: 0 auto;
+    }
+    nav .brand { font-weight: 600; color: #fff; text-decoration: none; font-size: 1.2rem; }
+    nav .brand .dot { background: var(--sea-green); width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+    nav .links a { color: #fff; text-decoration: none; margin-left: 1.2rem; font-size: 0.95rem; transition: color 0.2s ease-in-out; }
+    nav .links a:hover, nav .links a[aria-current="page"] { color: var(--sea-green); }
+
+    /* --- Header --- */
+    header.hero {
+      background: linear-gradient(90deg, var(--deep-blue), #033);
+      color: #fff; padding: 3rem 1rem 0; text-align: center; position: relative; overflow: hidden;
+    }
+    header.hero h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    header.hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 2rem; color: #cfe8e5; }
+
+    /* --- Wave divider (top) --- */
+    .wave { position: relative; height: 60px; overflow: hidden; line-height: 0; }
+    .wave svg { position: relative; display: block; width: calc(100% + 1.3px); height: 60px; }
+    .wave .shape-fill { fill: var(--sea-green); opacity: 0.4; }
+
+    /* --- Content --- */
+    .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+    h2, h3 { color: var(--deep-blue); }
+    a { color: var(--sea-green); text-decoration: none; transition: color 0.2s ease-in-out; }
+    a:hover { text-decoration: underline; color: #029f7f; }
+
+    /* --- News controls --- */
+    .news-controls {
+      display: flex; align-items: center; gap: .75rem; flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      background: #fff; border: 2px solid rgba(4,167,136,0.15);
+      color: var(--deep-blue); border-radius: 999px; padding: .3rem .65rem; font-size: .9rem; cursor: pointer;
+      transition: border-color .2s, box-shadow .2s, color .2s;
+    }
+    .chip:hover { border-color: var(--sea-green); box-shadow: 0 0 8px rgba(4,167,136,0.15); color: var(--sea-green); }
+    .chip[aria-pressed="true"] { background: rgba(4,167,136,.08); border-color: var(--sea-green); color: var(--sea-green); }
+
+    /* --- News grid --- */
+    .news-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+    }
+    .news-card {
+      background: #fff; border: 2px solid rgba(4,167,136,0.15); border-radius: 14px; padding: 1rem 1.1rem;
+      display: flex; flex-direction: column; gap: .5rem; height: 100%;
+      transition: border-color .25s, box-shadow .25s, transform .05s;
+    }
+    .news-card:hover { border-color: var(--sea-green); box-shadow: 0 4px 18px rgba(4,167,136,0.15); transform: translateY(-1px); }
+    .news-meta { display: flex; align-items: center; gap: .5rem; color: #516; font-size: .9rem; opacity: .9; }
+    .news-title { margin: .2rem 0; font-size: 1.05rem; line-height: 1.35; }
+    .news-tags { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .25rem; }
+    .tag { background: rgba(4,167,136,.1); color: var(--deep-blue); border: 1px solid rgba(4,167,136,.25); padding: .15rem .5rem; border-radius: 999px; font-size: .8rem; }
+    .news-actions { margin-top: auto; }
+    .news-actions a { font-size: .95rem; }
+
+    /* --- Year archive --- */
+    details.archive { margin-top: 2rem; }
+    details.archive summary {
+      list-style: none; cursor: pointer; font-weight: 600;
+      padding: .6rem .8rem; border-radius: 10px; background: #fff; border: 2px solid rgba(4,167,136,0.15);
+      transition: border-color .2s, box-shadow .2s, color .2s;
+      color: var(--deep-blue);
+    }
+    details.archive[open] summary, details.archive summary:hover { border-color: var(--sea-green); box-shadow: 0 0 8px rgba(4,167,136,0.15); color: var(--sea-green); }
+    .archive .news-grid { margin-top: 1rem; }
+
+    /* --- Bottom wave (modern inverted) --- */
+    .wave-bottom {
+      position: relative; height: 70px; line-height: 0; overflow: hidden; margin-top: 2rem;
+    }
+    .wave-bottom svg { position: relative; display: block; width: calc(100% + 1.3px); height: 70px; transform: rotate(180deg); }
+    .wave-bottom .shape-fill { fill: var(--sea-green); opacity: 0.35; }
+
+    /* --- Footer --- */
+    footer { background: var(--deep-blue); color: #fff; padding: 1.5rem 2rem; }
+    footer .container {
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    footer .badges { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    footer .badges a, footer .badges span {
+      background: var(--sea-green); color: #fff; padding: 0.35rem 0.6rem; border-radius: 4px; font-size: 0.9rem; text-decoration: none;
+    }
+    footer p a { color: var(--sea-green); text-decoration: none; }
+  </style>
 </head>
 <body>
 
+<!-- NAVIGATION -->
 <nav aria-label="Primary">
   <div class="inner">
     <a class="brand" href="index.html" aria-label="Home">
@@ -19,53 +124,192 @@
       <a href="teaching.html">Teaching</a>
       <a href="people.html">People</a>
       <a href="publications.html">Publications</a>
-      <a href="news.html">News</a>
+      <a href="news.html" aria-current="page">News</a>
       <a href="contact.html">Contact</a>
     </div>
   </div>
 </nav>
 
+<!-- HEADER -->
 <header class="hero">
   <div class="container">
-    <h1>News</h1>
-    <p class="lead">Talks, fieldwork, preprints, and milestones.</p>
+    <h1>News &amp; Updates</h1>
+    <p>Talks, publications, fieldwork, infrastructure releases, and community milestones.</p>
+  </div>
+
+  <!-- Wave divider (top) -->
+  <div class="wave" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M985.66,83.29c-56.74,8.79-113.46,17.86-170.2,26.08-91.47,13.65-182.94,27.11-274.41,28.59-93.59,1.52-187.19-9.44-280.78-20.52C169.07,106.57,84.54,95.83,0,85.09V0H1200V27.35C1117.42,48.88,1058.2,74.5,985.66,83.29Z" class="shape-fill"></path>
+    </svg>
   </div>
 </header>
+
+<!-- MAIN CONTENT -->
 <main>
   <div class="container">
 
-<section class="highlight">
-  <h2>Fieldwork Highlight — Kootenai/Kootenay River</h2>
-  <p><strong>July 2025:</strong> fieldwork along the Kootenai (Kootenay in Canada) River floodplain. </p>
-  <figure>
-    <img src="images/kootenai_fieldwork_2025.jpg" alt="Kootenai River" style="max-width:100%; border-radius:10px;">
-    <figcaption>Kootenai Falls — July 2025.</figcaption>
-  </figure>
-</section>
-    
- <h2>Announcements <h2>
-<ul>
-  <li><strong>2025-10-30</strong> — Looking for group members for FAIR paleontological data .</li>
-  <li><strong>2025-10-21</strong> — Sign up for
-      <a href="https://us06web.zoom.us/meeting/register/Sg0hRN_cTmicKxzeoI1ITg#/registration" target="_blank" rel="noopener">
-        MorphoBank Data Project
-      </a>.
-    </li>
-</ul>
+    <!-- Quick filter (optional; pure client-side) -->
+    <div class="news-controls" aria-label="Filter news by tag">
+      <button class="chip" data-filter="all" aria-pressed="true">All</button>
+      <button class="chip" data-filter="Publication">Publication</button>
+      <button class="chip" data-filter="Talk">Talk</button>
+      <button class="chip" data-filter="Field">Field</button>
+      <button class="chip" data-filter="Infrastructure">Infrastructure</button>
+      <button class="chip" data-filter="Community">Community</button>
+    </div>
+
+    <!-- Latest -->
+    <h2>Latest</h2>
+    <section class="news-grid" id="latest">
+      <!-- Card example -->
+      <article class="news-card" data-tags="Publication,Infrastructure">
+        <div class="news-meta">
+          <time datetime="2025-10-29">Oct 29, 2025</time> • Publication
+        </div>
+        <h3 class="news-title">
+          AI-assisted morphological data curation preprint posted
+        </h3>
+        <p>We released our workflow for LLM-assisted extraction and human-in-the-loop validation of morphological matrices. Benchmarks + JSON schema + NEXUS export.</p>
+        <div class="news-tags">
+          <span class="tag">Publication</span>
+          <span class="tag">Infrastructure</span>
+          <span class="tag">Open&nbsp;Science</span>
+        </div>
+        <div class="news-actions">
+          <a href="https://doi.org/10.1101/2025.07.08.663621" target="_blank" rel="noopener">Read the preprint →</a>
+        </div>
+      </article>
+
+      <article class="news-card" data-tags="Community">
+        <div class="news-meta">
+          <time datetime="2025-10-28">Oct 28, 2025</time> • Community
+        </div>
+        <h3 class="news-title">MorphoBank Connects: 60+ participants across 16 countries</h3>
+        <p>Thank you to everyone who joined! Shared demos, volunteer recognition, and roadmap discussions for equitable, reusable morphology data.</p>
+        <div class="news-tags">
+          <span class="tag">Community</span>
+          <span class="tag">MorphoBank</span>
+        </div>
+        <div class="news-actions">
+          <a href="#" target="_blank" rel="noopener">Slides/notes (coming soon) →</a>
+        </div>
+      </article>
+
+      <article class="news-card" data-tags="Field,Community">
+        <div class="news-meta">
+          <time datetime="2025-09-15">Sep 15, 2025</time> • Field
+        </div>
+        <h3 class="news-title">Kootenai River floodplain reconnection monitoring</h3>
+        <p>Seasonal reconnection sampling underway with partners—tracking N:P balance, production, and export of lower-trophic biomass to mainstem habitats.</p>
+        <div class="news-tags">
+          <span class="tag">Field</span>
+          <span class="tag">Aquatic&nbsp;Ecology</span>
+        </div>
+        <div class="news-actions">
+          <a href="#" target="_blank" rel="noopener">Project page →</a>
+        </div>
+      </article>
+
+      <article class="news-card" data-tags="Talk">
+        <div class="news-meta">
+          <time datetime="2025-08-12">Aug 12, 2025</time> • Talk
+        </div>
+        <h3 class="news-title">Invited talk: Authorship transparency &amp; FAIR morphology</h3>
+        <p>Discussed CRediT, reuse-ready data, and aligning society practices with open-science infrastructure.</p>
+        <div class="news-tags">
+          <span class="tag">Talk</span>
+          <span class="tag">Open&nbsp;Science</span>
+        </div>
+        <div class="news-actions">
+          <a href="#" target="_blank" rel="noopener">Abstract/recording →</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- Archive by year -->
+    <details class="archive" open>
+      <summary>Archive — 2025</summary>
+      <section class="news-grid" id="archive-2025">
+        <article class="news-card" data-tags="Infrastructure">
+          <div class="news-meta">
+            <time datetime="2025-06-10">Jun 10, 2025</time> • Infrastructure
+          </div>
+          <h3 class="news-title">MorphoBank data-mining pilot updates</h3>
+          <p>Standards-aligned curation and mining to improve reuse and reproducibility across morphological datasets.</p>
+          <div class="news-tags">
+            <span class="tag">Infrastructure</span>
+            <span class="tag">MorphoBank</span>
+          </div>
+          <div class="news-actions">
+            <a href="#" target="_blank" rel="noopener">Learn more →</a>
+          </div>
+        </article>
+
+        <article class="news-card" data-tags="Publication">
+          <div class="news-meta">
+            <time datetime="2025-05-20">May 20, 2025</time> • Publication
+          </div>
+          <h3 class="news-title">ADVANCE: Empower through Inclusivity (journal)</h3>
+          <p>New paper on leadership programming and institutionalization beyond award periods.</p>
+          <div class="news-tags">
+            <span class="tag">Publication</span>
+            <span class="tag">ADVANCE</span>
+          </div>
+          <div class="news-actions">
+            <a href="https://doi.org/10.5399/osu/ADVJRNL.6.1.4" target="_blank" rel="noopener">Read →</a>
+          </div>
+        </article>
+      </section>
+    </details>
+
+    <!-- Add more <details> blocks for earlier years as needed -->
+
+    <!-- Modern inverted wave before footer -->
+    <div class="wave-bottom" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44C200.22,76.61,79.05,96.79,0,108.29V120H1200V0C1130.9,14.32,1061.8,28.64,970.68,39.46,855,53.37,740.29,60.6,625.58,60.43,524.18,60.28,422.78,40.53,321.39,56.44Z" class="shape-fill"></path>
+      </svg>
+    </div>
 
   </div>
 </main>
-<footer class="footer">
-  <div class="container small">
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
     <div class="badges">
-      <span class="badge" href="https://orcid.org/0000-0002-2718-647X" target="_blank" rel="noopener">ORCID</span>
-      <span class="badge" href="https://scholar.google.com/citations?user=jc7uD0sAAAAJ&hl=en&oi=sra" target="_blank" rel="noopener">Google Scholar</span>
-      <span class="badge" href="https://www.researchgate.net/profile/Brooke-Long-Fox" target="_blank" rel="noopener">ResearchGate</span>
-      <span class="badge" href="https://www.linkedin.com/in/brookelongfox" target="_blank" rel="noopener">LinkedIn</span>
-      <span class="badge">GitHub</span>
+      <a href="https://orcid.org/0000-0002-2718-647X" target="_blank" rel="noopener">ORCID</a>
+      <a href="https://scholar.google.com/citations?user=jc7uD0sAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://www.researchgate.net/profile/Brooke-Long-Fox" target="_blank" rel="noopener">ResearchGate</a>
+      <a href="https://www.linkedin.com/in/brookelongfox" target="_blank" rel="noopener">LinkedIn</a>
+      <span>GitHub</span>
     </div>
-    <p>© 2025 Brooke L Long-Fox • <a href="mailto:brooke.long-fox@sdsmt.edu" style="text-decoration:none;">Contact</a> • 🌊 Connecting biodiversity, data, and people.</p>
+    <p>© 2025 Brooke L. Long-Fox • <a href="mailto:brooke.long-fox@sdsmt.edu">Contact</a> • 🌊 Connecting biodiversity, data, and people.</p>
   </div>
 </footer>
+
+<!-- Optional tiny script for tag filtering -->
+<script>
+  const chips = document.querySelectorAll('.chip');
+  const cards = document.querySelectorAll('.news-card');
+
+  function applyFilter(tag) {
+    cards.forEach(card => {
+      const has = (card.dataset.tags || '').split(',').map(s => s.trim());
+      const show = (tag === 'all') || has.includes(tag);
+      card.style.display = show ? '' : 'none';
+    });
+  }
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.setAttribute('aria-pressed', 'false'));
+      chip.setAttribute('aria-pressed', 'true');
+      applyFilter(chip.dataset.filter);
+    });
+  });
+</script>
+
 </body>
 </html>
