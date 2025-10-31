@@ -4,11 +4,69 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Brooke Long-Fox | Research Lab</title>
-  <meta name="description" content="Add a one-line description you like here (change anytime).">
+  <meta name="description" content="Equitable, FAIR science for living waters and living archives — morphology, ecology, and open infrastructure.">
   <link rel="stylesheet" href="assets/style.css">
+  <style>
+    :root{
+      --sea-green:#04A788;
+      --deep-blue:#0e1116;
+      --light-bg:#f8fafa;
+      --wave-opacity:.25;
+    }
+    body{font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;margin:0;padding:0;background:var(--light-bg);color:#222}
+
+    /* --- Nav --- */
+    nav{background:var(--deep-blue);color:#fff;padding:.75rem 2rem}
+    nav .inner{display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto}
+    nav .brand{font-weight:600;color:#fff;text-decoration:none;font-size:1.2rem}
+    nav .brand .dot{background:var(--sea-green);width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:6px}
+    nav .links a{color:#fff;text-decoration:none;margin-left:1.2rem;font-size:.95rem;transition:color .2s}
+    nav .links a:hover, nav .links a[aria-current="page"]{color:var(--sea-green)}
+
+    /* --- Hero --- */
+    header.hero{background:linear-gradient(90deg,var(--deep-blue),#033);color:#fff;padding:3rem 1rem 0;text-align:center;position:relative;overflow:hidden}
+    header.hero h1{font-size:2rem;margin-bottom:.5rem}
+    header.hero p{font-size:1.1rem;max-width:760px;margin:0 auto 2rem;color:#cfe8e5}
+
+    /* --- Wave top --- */
+    .wave{position:relative;height:60px;overflow:hidden;line-height:0}
+    .wave svg{position:relative;display:block;width:calc(100% + 1.3px);height:60px}
+    .wave .shape-fill{fill:var(--sea-green);opacity:.4}
+
+    /* --- Content --- */
+    .container{max-width:1100px;margin:0 auto;padding:2rem 1.5rem}
+    h2,h3{color:var(--deep-blue)}
+    a{color:var(--sea-green);text-decoration:none;transition:color .2s}
+    a:hover{color:#029f7f;text-decoration:underline}
+
+    /* --- Highlights --- */
+    .highlights{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem;margin:1rem 0 1.5rem}
+    .pill{display:flex;align-items:center;gap:.55rem;background:#fff;border:2px solid rgba(4,167,136,.15);border-radius:999px;padding:.45rem .75rem;font-size:.95rem}
+    .pill .dot{width:8px;height:8px;border-radius:50%;background:var(--sea-green);opacity:.8}
+
+    /* --- Cards grid --- */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+    .card{background:#fff;border:2px solid rgba(4,167,136,.15);border-radius:14px;padding:1rem 1.2rem;transition:border-color .25s,box-shadow .25s,transform .05s;height:100%}
+    .card:hover{border-color:var(--sea-green);box-shadow:0 4px 18px rgba(4,167,136,.15);transform:translateY(-1px)}
+    .card h2{margin:.2rem 0;font-size:1.2rem}
+    .small{color:#333;margin:0}
+
+    /* --- Wave bottom --- */
+    .wave-bottom{position:relative;height:70px;line-height:0;overflow:hidden;margin-top:2rem}
+    .wave-bottom svg{position:relative;display:block;width:calc(100% + 1.3px);height:70px;transform:rotate(180deg)}
+    .wave-bottom .shape-fill{fill:var(--sea-green);opacity:.35}
+
+    /* --- Footer --- */
+    footer{background:var(--deep-blue);color:#fff;padding:1.5rem 2rem}
+    footer .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    footer .badges{display:flex;flex-wrap:wrap;gap:.4rem}
+    footer .badges a, footer .badges span{background:var(--sea-green);color:#fff;padding:.35rem .6rem;border-radius:4px;font-size:.9rem;text-decoration:none}
+    footer p a{color:var(--sea-green);text-decoration:none}
+  </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav aria-label="Primary">
   <div class="inner">
     <a class="brand" href="index.html" aria-label="Home">
@@ -20,72 +78,105 @@
       <a href="people.html">People</a>
       <a href="publications.html">Publications</a>
       <a href="news.html">News</a>
-      <a href="contact.html">Contact</a>
+      <a href="connect.html">Connect</a>
     </div>
   </div>
 </nav>
 
+<!-- HERO -->
 <header class="hero">
   <div class="container">
-    <h1>Brooke Long-Fox | Research Lab</h1>
-    <p class="lead">Add a one-line description you like here (change anytime).</p>
+    <h1>Equitable, FAIR science for living waters &amp; living archives</h1>
+    <p>We link morphology, ecology, and open infrastructure to understand how life responds to environmental change—across modern and geologic timescales—and to make those insights reusable by everyone.</p>
+  </div>
+
+  <!-- Wave divider -->
+  <div class="wave" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M985.66,83.29c-56.74,8.79-113.46,17.86-170.2,26.08-91.47,13.65-182.94,27.11-274.41,28.59-93.59,1.52-187.19-9.44-280.78-20.52C169.07,106.57,84.54,95.83,0,85.09V0H1200V27.35C1117.42,48.88,1058.2,74.5,985.66,83.29Z" class="shape-fill"></path>
+    </svg>
   </div>
 </header>
+
+<!-- MAIN -->
 <main>
   <div class="container">
-    
-<div class="grid">
-  <article class="card">
-    <a href="research.html">
-      <h2>Research</h2>
-      <p class="small">Four pillars with quick-switch tabs.</p>
-    </a>
-  </article>
-  <article class="card">
-    <a href="teaching.html">
-      <h2>Teaching</h2>
-      <p class="small">Philosophy and courses taught.</p>
-    </a>
-  </article>
-  <article class="card">
-    <a href="people.html">
-      <h2>People</h2>
-      <p class="small">Current & former mentees, and a full bio & service.</p>
-    </a>
-  </article>
-  <article class="card">
-    <a href="publications.html">
-      <h2>Publications</h2>
-      <p class="small">Papers, datasets, and software with DOIs.</p>
-    </a>
-  </article>
-  <article class="card">
-    <a href="news.html">
-      <h2>News</h2>
-      <p class="small">Talks, fieldwork, and preprints.</p>
-    </a>
-  </article>
-  <article class="card">
-    <a href="contact.html">
-      <h2>Contact</h2>
-      <p class="small">How to reach me and work together.</p>
-    </a>
-  </article>
-</div>
+
+    <!-- Optional highlights (edit freely) -->
+    <div class="highlights" aria-label="Site highlights">
+      <div class="pill"><span class="dot" aria-hidden="true"></span> Latest: BioScience roadmap on integrated data</div>
+      <div class="pill"><span class="dot" aria-hidden="true"></span> MorphoBank Connects recordings now live</div>
+      <div class="pill"><span class="dot" aria-hidden="true"></span> Kootenai River seasonal reconnection monitoring</div>
+    </div>
+
+    <!-- Section cards -->
+    <div class="grid">
+      <article class="card">
+        <a href="research.html" style="text-decoration:none">
+          <h2>Research</h2>
+          <p class="small">Conservation paleobiology, aquatic ecology, PFAS remediation, and open infrastructures.</p>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="teaching.html" style="text-decoration:none">
+          <h2>Teaching</h2>
+          <p class="small">Inclusive pedagogy and research-centered courses grounded in open, reproducible science.</p>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="people.html" style="text-decoration:none">
+          <h2>People</h2>
+          <p class="small">Current mentees, alumni, bio, and service.</p>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="publications.html" style="text-decoration:none">
+          <h2>Publications</h2>
+          <p class="small">Peer-reviewed articles, preprints, data notes, and conference papers.</p>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="news.html" style="text-decoration:none">
+          <h2>News</h2>
+          <p class="small">Talks, fieldwork, releases, and community milestones.</p>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="connect.html" style="text-decoration:none">
+          <h2>Connect</h2>
+          <p class="small">Email, socials, and scholar profiles.</p>
+        </a>
+      </article>
+    </div>
+
+    <!-- Bottom wave before footer -->
+    <div class="wave-bottom" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44C200.22,76.61,79.05,96.79,0,108.29V120H1200V0C1130.9,14.32,1061.8,28.64,970.68,39.46,855,53.37,740.29,60.6,625.58,60.43,524.18,60.28,422.78,40.53,321.39,56.44Z" class="shape-fill"></path>
+      </svg>
+    </div>
 
   </div>
 </main>
-<footer class="footer">
-  <div class="container small">
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
     <div class="badges">
-      <span class="badge" href="https://orcid.org/0000-0002-2718-647X" target="_blank" rel="noopener">ORCID</span>
-      <span class="badge" href="https://scholar.google.com/citations?user=jc7uD0sAAAAJ&hl=en&oi=sra" target="_blank" rel="noopener">Google Scholar</span>
-      <span class="badge" href="https://www.researchgate.net/profile/Brooke-Long-Fox" target="_blank" rel="noopener">ResearchGate</span>
-      <span class="badge" href="https://www.linkedin.com/in/brookelongfox" target="_blank" rel="noopener">LinkedIn</span>
-      <span class="badge">GitHub</span>
+      <a href="https://orcid.org/0000-0002-2718-647X" target="_blank" rel="noopener">ORCID</a>
+      <a href="https://scholar.google.com/citations?user=jc7uD0sAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://www.researchgate.net/profile/Brooke-Long-Fox" target="_blank" rel="noopener">ResearchGate</a>
+      <a href="https://www.linkedin.com/in/brookelongfox" target="_blank" rel="noopener">LinkedIn</a>
+      <span>GitHub</span>
     </div>
-    <p>© 2025 Brooke L Long-Fox • <a href="mailto:brooke.long-fox@sdsmt.edu" style="text-decoration:none;">Contact</a> • 🌊 Connecting biodiversity, data, and people.</p>
+    <p>© 2025 Brooke L. Long-Fox • <a href="mailto:brooke.long-fox@sdsmt.edu">Contact</a> • 🌊 Connecting biodiversity, data, and people.</p>
   </div>
 </footer>
+
 </body>
 </html>
