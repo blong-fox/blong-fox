@@ -49,6 +49,20 @@
     a { color: var(--sea-green); text-decoration: none; transition: color 0.2s ease-in-out; }
     a:hover { text-decoration: underline; color: #029f7f; }
 
+    /* --- Tables --- */
+    .table-wrap { overflow-x: auto; margin: 1rem 0 2rem; }
+    table {
+      width: 100%; border-collapse: collapse; background: #fff;
+      border: 2px solid rgba(4,167,136,0.15); border-radius: 10px; overflow: hidden;
+    }
+    caption { text-align: left; font-weight: 600; margin-bottom: 0.5rem; color: var(--deep-blue); }
+    th, td { padding: 0.75rem 0.9rem; text-align: left; vertical-align: top; }
+    thead th {
+      background: rgba(4,167,136,0.08); color: var(--deep-blue);
+      border-bottom: 1px solid rgba(4,167,136,0.2);
+    }
+    tbody tr + tr td { border-top: 1px solid rgba(4,167,136,0.12); }
+
     /* --- Bottom wave (modern inverted) --- */
     .wave-bottom {
       position: relative; height: 70px; line-height: 0; overflow: hidden; margin-top: 2rem;
@@ -110,12 +124,54 @@
     <p>Write your philosophy here: inclusive pedagogy, authentic research experiences, reproducible science, and open practices.</p>
 
     <h2>Courses Taught</h2>
-    <ul>
-      <li><strong>Reproducible Data &amp; FAIR Workflows (R/Python)</strong> — Syllabus [link]</li>
-      <li><strong>Biogeochemistry of Flowing Waters</strong> — Syllabus [link]</li>
-      <li><strong>Quantitative Morphology &amp; Phylogenetics</strong> — Syllabus [link]</li>
-      <li><strong>Inclusive Leadership in STEM</strong> — Syllabus [link]</li>
-    </ul>
+    <div class="table-wrap" role="region" aria-label="Courses taught table" tabindex="0">
+      <table>
+        <caption>Courses and field instruction</caption>
+        <thead>
+          <tr>
+            <th scope="col">Course #</th>
+            <th scope="col">Title</th>
+            <th scope="col">Institution</th>
+            <th scope="col">Term</th>
+            <th scope="col">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SCI 388</td>
+            <td>GPS &amp; GIS</td>
+            <td>Black Hills State</td>
+            <td>Fall 2019</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>GEOL 201L</td>
+            <td>Physical Geology (TA)</td>
+            <td>South Dakota Mines</td>
+            <td>Fall 2019</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>GEOL 461L</td>
+            <td>Invertebrate Paleontology (TA)</td>
+            <td>South Dakota Mines</td>
+            <td>Spring 2017</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>GEOL 412/512</td>
+            <td>Field Studies in Coastal Biomes (TA)</td>
+            <td>South Dakota Mines</td>
+            <td>Summer 2016</td>
+            <td>with University of Tennessee Knoxville at Gerace Research Centre, Bahamas</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Add syllabi links here if/when available
+    <p><em>Syllabi:</em> <a href="#" target="_blank" rel="noopener">SCI 388</a> · <a href="#" target="_blank" rel="noopener">GEOL 201L</a> · ...</p>
+    -->
 
     <!-- Modern inverted wave before footer -->
     <div class="wave-bottom" aria-hidden="true">
