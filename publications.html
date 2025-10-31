@@ -27,7 +27,7 @@
     /* Header */
     header.hero { background: linear-gradient(90deg, var(--deep-blue), #033); color: #fff; padding: 3rem 1rem 0; text-align: center; position: relative; overflow: hidden; }
     header.hero h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-    header.hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 2rem; color: #cfe8e5; }
+    header.hero p { font-size: 1.05rem; max-width: 760px; margin: 0 auto 2rem; color: #cfe8e5; }
 
     /* Wave */
     .wave { position: relative; height: 60px; overflow: hidden; line-height: 0; }
@@ -39,42 +39,44 @@
     h2, h3 { color: var(--deep-blue); }
     a { color: var(--sea-green); text-decoration: none; transition: color 0.2s ease-in-out; }
     a:hover { text-decoration: underline; color: #029f7f; }
+    .small { font-size: .92rem; color: #2a2a2a; }
 
-    /* Filters */
-    .pub-controls { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    /* Filters (simple, professional chips) */
+    .pub-controls { display: flex; align-items: center; gap: .55rem; flex-wrap: wrap; margin-bottom: 1rem; }
     .chip {
       display: inline-flex; align-items: center; gap: .35rem;
       background: #fff; border: 2px solid rgba(4,167,136,0.15);
-      color: var(--deep-blue); border-radius: 999px; padding: .3rem .65rem; font-size: .9rem; cursor: pointer;
+      color: var(--deep-blue); border-radius: 999px; padding: .28rem .65rem; font-size: .9rem; cursor: pointer;
       transition: border-color .2s, box-shadow .2s, color .2s;
     }
     .chip:hover { border-color: var(--sea-green); box-shadow: 0 0 8px rgba(4,167,136,0.15); color: var(--sea-green); }
     .chip[aria-pressed="true"] { background: rgba(4,167,136,.08); border-color: var(--sea-green); color: var(--sea-green); }
 
-    /* Lists */
-    .pub-list { list-style: none; padding-left: 0; margin: 1rem 0 2rem; display: grid; gap: .9rem; }
+    /* Main unified list */
+    .pub-list { list-style: none; padding-left: 0; margin: 1rem 0 2rem; display: grid; gap: .85rem; }
     .pub-item {
       background: #fff; border: 2px solid rgba(4,167,136,0.15); border-radius: 12px; padding: .9rem 1rem;
       transition: border-color .25s, box-shadow .25s;
     }
     .pub-item:hover { border-color: var(--sea-green); box-shadow: 0 4px 18px rgba(4,167,136,0.12); }
-    .pub-meta { font-size: .9rem; color: #444; margin-top: .3rem; }
+    .pub-row { display: grid; grid-template-columns: auto 1fr; gap: .65rem; align-items: start; }
+    .icon-col { width: 2rem; line-height: 1.2; text-align: center; font-size: 1.05rem; }
+    .entry { line-height: 1.45; }
+    .pub-meta { font-size: .9rem; color: #444; margin-top: .35rem; }
     .pub-actions { margin-top: .45rem; display: flex; gap: .6rem; flex-wrap: wrap; }
-    .badge {
-      display: inline-flex; align-items: center; gap: .35rem; font-size: .85rem;
-      background: rgba(4,167,136,.1); border: 1px solid rgba(4,167,136,.25);
-      color: var(--deep-blue); border-radius: 999px; padding: .15rem .6rem;
-    }
-    .legend { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .3rem; }
+
     .student-tag {
-      display: inline-block; font-size: .75rem; text-transform: uppercase;
-      background: rgba(4,167,136,.15); border: 1px solid rgba(4,167,136,.35); color: var(--deep-blue);
-      padding: 0 .4rem; border-radius: 999px; margin-left: .35rem;
+      display: inline-block; font-size: .72rem; letter-spacing: .02em; text-transform: uppercase;
+      background: rgba(4,167,136,.12); border: 1px solid rgba(4,167,136,.35); color: var(--deep-blue);
+      padding: 0 .42rem; border-radius: 999px; margin-left: .35rem;
     }
-    .small { font-size: .9rem; color: #333; }
+
+    /* Secondary sections (datasets, theses, etc.) */
+    .subsection { margin-top: 2rem; }
+    .subsection .pub-item { padding: .8rem 1rem; }
 
     /* Bottom wave */
-    .wave-bottom { position: relative; height: 70px; line-height: 0; overflow: hidden; margin-top: 2rem; }
+    .wave-bottom { position: relative; height: 70px; line-height: 0; overflow: hidden; margin-top: 2.2rem; }
     .wave-bottom svg { position: relative; display: block; width: calc(100% + 1.3px); height: 70px; transform: rotate(180deg); }
     .wave-bottom .shape-fill { fill: var(--sea-green); opacity: 0.35; }
 
@@ -109,7 +111,9 @@
 <header class="hero">
   <div class="container">
     <h1>Publications</h1>
-    <p>Peer-reviewed articles, preprints, data notes, reports, and more.<br><span class="small">Symbols: 📝 Preprint • 📗 Data Note • 📑 Report • 🎤 Conference Paper • ✳️ Extended Abstract</span></p>
+    <p>Unified list of peer-reviewed articles, preprints, data notes, reports, and conference outputs.<br>
+      <span class="small">Symbols: 📝 Preprint • 📗 Data Note • 📑 Report • 📘 Conference Paper • 🗒️ Extended Abstract</span>
+    </p>
   </div>
 
   <div class="wave" aria-hidden="true">
@@ -123,7 +127,7 @@
 <main>
   <div class="container">
 
-    <!-- Filters -->
+    <!-- Filters (type + student) -->
     <div class="pub-controls" aria-label="Filter publications by type">
       <button class="chip" data-filter="all" aria-pressed="true">All</button>
       <button class="chip" data-filter="article">Articles</button>
@@ -135,150 +139,283 @@
       <button class="chip" data-filter="student">With Students</button>
     </div>
 
-    <!-- Peer-Reviewed & Preprints -->
+    <!-- Unified list: Peer-reviewed articles & preprints (plus integrated types) -->
     <h2>Peer-Reviewed Articles &amp; Preprints</h2>
     <ul class="pub-list" id="peer-reviewed">
 
-      <!-- In Prep / Preprints (📝) -->
-      <li class="pub-item" data-type="preprint">
-        📝 <strong>Long-Fox, B. L.</strong>, L. C. Anderson, B. S. Kokesh, A. T. Paterson, S. J. Lim, B. J. Campbell, and A. S. Engel. (In Prep).
-        Phylogenetic signal in shell shape for the chemosymbiotic Lucinidae (Bivalvia, Mollusca). <em>Systematic Biology</em>.
-        <span class="pub-actions"><a href="https://doi.org/10.32942/X29S57" target="_blank" rel="noopener">Preprint (EcoEvoRxiv)</a></span>
+      <!-- 2025 -->
+      <li class="pub-item" data-type="article">
+        <div class="pub-row">
+          <div class="icon-col"></div>
+          <div class="entry">
+            <strong>Long-Fox, B. L.</strong>, L. C. Anderson, D. F. Dolan, R. L. Nielsen, S. E. Rácz-Brunner, L. A. Roberts, A. E. Surovek, and L. A. Kunza. (2025).
+            Empower through Inclusivity: Developing Pathways to Success. <em>ADVANCE Journal</em>.
+            <div class="pub-actions"><a href="https://doi.org/10.5399/osu/ADVJRNL.6.1.4" target="_blank" rel="noopener">DOI</a></div>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub-item" data-type="article">
+        <div class="pub-row">
+          <div class="icon-col"></div>
+          <div class="entry">
+            McCarthy, M. L., J. M. Herbers, L. A. Kunza, <strong>B. L. Long-Fox</strong>, and Q. Zhang. (2025).
+            Learning From Each Other: Faculty Peer Mentoring Circles at ADVANCE Institutions.
+            <em>ADVANCE Journal</em>.
+            <div class="pub-actions"><a href="https://doi.org/10.5399/osu/ADVJRNL.6.1.1" target="_blank" rel="noopener">DOI</a></div>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub-item" data-type="datanote">
+        <div class="pub-row">
+          <div class="icon-col">📗</div>
+          <div class="entry">
+            <strong>Long-Fox, B. L.</strong>. (2025).
+            A Morphological Character Matrix Describing Shells from Extant and Extinct Lucinid Bivalves of the Western Atlantic.
+            <em>Historical Biology</em>.
+            <div class="pub-actions"><a href="https://doi.org/10.1080/08912963.2025.2516584" target="_blank" rel="noopener">DOI</a></div>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub-item" data-type="datanote">
+        <div class="pub-row">
+          <div class="icon-col">📗</div>
+          <div class="entry">
+            Anderson, L. C., B. Campbell, <strong>B. L. Long-Fox</strong>, J. Petersen, S. J. Lim, G. Oatley, E. Sinclair, E. Aunin, N. Gettle, C. Santos, M. Paulini, V. McKenna, R. O’Brien, H. Niu, Wellcome Sanger Institute teams, EBI ASG Portal Team, ASG Leadership. (2025).
+            The genome sequence of the woven lucine, <em>Lucinisca nassula</em> (Conrad, 1846). <em>Wellcome Open Research</em>.
+            <div class="pub-actions"><a href="https://doi.org/10.12688/wellcomeopenres.24087.1" target="_blank" rel="noopener">DOI</a></div>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub-item" data-type="report">
+        <div class="pub-row">
+          <div class="icon-col">📑</div>
+          <div class="entry">
+            Kunkel, D. M.*, <strong>B. L. Long-Fox*</strong>, C. Pittman*, J. Portmann*, M. Sheik*, J. Bates, A. Bentley, D. Contreras, E. R. Ellwood, M. W. Lomas, A. Monfils, W. Moser, G. Nelson, S. Poo, B. Thiers, G. J. Watkins-Colwell, M. Webster, B. Zimkus, and J. L. Pandey. (2025).
+            Integrating biological and environmental data to solve key scientific and societal challenges. <em>BioScience</em>.
+            <div class="pub-actions"><a href="https://doi.org/10.1093/biosci/biaf150" target="_blank" rel="noopener">DOI</a></div>
+            <div class="pub-meta">* denotes co-first authors.</div>
+          </div>
+        </div>
       </li>
 
       <li class="pub-item" data-type="preprint">
-        📝 <strong>Long-Fox, B. L.</strong>, and L. C. Anderson. (In Prep).
-        Reanalyzing morphologic shell characters for use with molecular phylogenies to reconstruct the evolutionary history of the chemosymbiotic Lucinidae (Bivalvia). <em>Cladistics</em>.
-        <span class="pub-actions"><a href="https://doi.org/10.32942/X29059" target="_blank" rel="noopener">Preprint (EcoEvoRxiv)</a></span>
+        <div class="pub-row">
+          <div class="icon-col">📝</div>
+          <div class="entry">
+            <strong>Long-Fox, B. L.</strong>, L. C. Anderson, B. S. Kokesh, A. T. Paterson, S. J. Lim, B. J. Campbell, and A. S. Engel. (In Prep).
+            Phylogenetic signal in shell shape for the chemosymbiotic Lucinidae (Bivalvia, Mollusca).
+            <em>Systematic Biology</em>. <a href="https://doi.org/10.32942/X29S57" target="_blank" rel="noopener">Preprint (EcoEvoRxiv)</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub-item" data-type="preprint">
+        <div class="pub-row">
+          <div class="icon-col">📝</div>
+          <div class="entry">
+            <strong>Long-Fox, B. L.</strong>, and L. C. Anderson. (In Prep).
+            Reanalyzing morphologic shell characters for use with molecular phylogenies to reconstruct the evolutionary history of the chemosymbiotic Lucinidae (Bivalvia).
+            <em>Cladistics</em>. <a href="https://doi.org/10.32942/X29059" target="_blank" rel="noopener">Preprint (EcoEvoRxiv)</a>
+          </div>
+        </div>
       </li>
 
       <li class="pub-item" data-type="preprint student">
-        📝 Jariwala, S.<span class="student-tag">student</span>, <strong>B. L. Long-Fox</strong>, and T. Z. Berardini. (In Review).
-        Advancing FAIR Data Management through AI-Assisted Curation of Morphological Data Matrices.
-        <span class="pub-actions"><a href="https://doi.org/10.1101/2025.07.08.663621" target="_blank" rel="noopener">Preprint (bioRxiv)</a></span>
-        <div class="pub-meta">† denotes co-first author in original citation (S. Jariwala†).</div>
+        <div class="pub-row">
+          <div class="icon-col">📝</div>
+          <div class="entry">
+            Jariwala, S.<span class="student-tag">student</span>, <strong>B. L. Long-Fox</strong>, and T. Z. Berardini. (In Review).
+            Advancing FAIR Data Management through AI-Assisted Curation of Morphological Data Matrices.
+            <a href="https://doi.org/10.1101/2025.07.08.663621" target="_blank" rel="noopener">Preprint (bioRxiv)</a>
+            <div class="pub-meta">† denotes co-first author in original citation (S. Jariwala†).</div>
+          </div>
+        </div>
       </li>
 
-      <!-- Articles (peer-reviewed) -->
-      <li class="pub-item" data-type="article">
-        <strong>Long-Fox, B. L.</strong>, L. C. Anderson, D. F. Dolan, R. L. Nielsen, S. E. Rácz-Brunner, L. A. Roberts, A. E. Surovek, and L. A. Kunza. (2025).
-        Empower through Inclusivity: Developing Pathways to Success. <em>ADVANCE Journal</em>.
-        <span class="pub-actions"><a href="https://doi.org/10.5399/osu/ADVJRNL.6.1.4" target="_blank" rel="noopener">DOI</a></span>
-      </li>
-
-      <li class="pub-item" data-type="article">
-        McCarthy, M. L., J. M. Herbers, L. A. Kunza, <strong>B. L. Long-Fox</strong>, and Q. Zhang. (2025).
-        Learning From Each Other: Faculty Peer Mentoring Circles at ADVANCE Institutions. <em>ADVANCE Journal</em>.
-        <span class="pub-actions"><a href="https://doi.org/10.5399/osu/ADVJRNL.6.1.1" target="_blank" rel="noopener">DOI</a></span>
-      </li>
-
-      <li class="pub-item" data-type="article">
-        Anderson, L. C.*, <strong>B. L. Long-Fox*</strong>, A. T. Paterson, and A. S. Engel. (2022).
-        Testing live and live-dead intraspecific morphometric comparisons as proxies for seagrass stability.
-        <em>Frontiers in Ecology and Evolution</em>.
-        <span class="pub-actions"><a href="https://doi.org/10.3389/fevo.2022.933486" target="_blank" rel="noopener">DOI</a></span>
-        <div class="pub-meta">* co-first authors.</div>
-      </li>
-
-      <!-- Data Notes (📗 moved up) -->
-      <li class="pub-item" data-type="datanote">
-        📗 <strong>Long-Fox, B. L.</strong>. (2025).
-        A Morphological Character Matrix Describing Shells from Extant and Extinct Lucinid Bivalves of the Western Atlantic.
-        <em>Historical Biology</em>.
-        <span class="pub-actions"><a href="https://doi.org/10.1080/08912963.2025.2516584" target="_blank" rel="noopener">DOI</a></span>
-      </li>
-
-      <li class="pub-item" data-type="datanote">
-        📗 Anderson, L. C., B. Campbell, <strong>B. L. Long-Fox</strong>, J. Petersen, S. J. Lim, G. Oatley, E. Sinclair, E. Aunin, N. Gettle, C. Santos, M. Paulini, V. McKenna, R. O’Brien, H. Niu, Wellcome Sanger Institute teams, EBI ASG Portal Team, ASG Leadership. (2025).
-        The genome sequence of the woven lucine, <em>Lucinisca nassula</em> (Conrad, 1846).
-        <em>Wellcome Open Research</em>.
-        <span class="pub-actions"><a href="https://doi.org/10.12688/wellcomeopenres.24087.1" target="_blank" rel="noopener">DOI</a></span>
-      </li>
-
-      <!-- Report (📑 moved up) -->
-      <li class="pub-item" data-type="report">
-        📑 Kunkel, D. M.*, <strong>B. L. Long-Fox*</strong>, C. Pittman*, J. Portmann*, M. Sheik*, J. Bates, A. Bentley, D. Contreras, E. R. Ellwood, M. W. Lomas, A. Monfils, W. Moser, G. Nelson, S. Poo, B. Thiers, G. J. Watkins-Colwell, M. Webster, B. Zimkus, and J. L. Pandey. (2025).
-        Integrating biological and environmental data to solve key scientific and societal challenges.
-        <em>BioScience</em>.
-        <span class="pub-actions"><a href="https://doi.org/10.1093/biosci/biaf150" target="_blank" rel="noopener">DOI</a></span>
-        <div class="pub-meta">Labeled here as 📑 Report to distinguish a community roadmap/white-paper style output.</div>
-      </li>
-
-      <!-- Conference Papers (🎤 moved up) -->
-      <li class="pub-item" data-type="conf">
-        🎤 Kunza, L. A., <strong>B. L. Long-Fox</strong>, and L. A. Roberts. (2025).
-        Utilizing Campus Engagement for the Development of an ADVANCE Faculty Leadership Initiative.
-        <em>CoNECD</em>, San Antonio, TX.
-        <span class="pub-actions"><a href="https://peer.asee.org/54127" target="_blank" rel="noopener">Proceedings</a></span>
-      </li>
-
-      <li class="pub-item" data-type="conf">
-        🎤 Surovek, A., <strong>B. L. Long-Fox</strong>, A. Williams, S. E. Rácz, and L. A. Kunza. (2023).
-        Work in Progress: Serendipity and Synergy in Promoting Equity.
-        <em>ASEE Annual Conference</em>.
-        <span class="pub-actions"><a href="https://strategy.asee.org/44352" target="_blank" rel="noopener">Proceedings</a></span>
-      </li>
-
-      <!-- Extended Abstracts (✳️ moved up) -->
+      <!-- 2024 -->
       <li class="pub-item" data-type="extabs">
-        ✳️ Ellwood, E. R., A. Bentley, B. M. Thiers, W. E. Moser, G. J. Watkins-Colwell, B. M. Zimkus, A. K. Monfils, N. M. Franz, J. M. Bates, S. Poo, D. L. Contreras, M. S. Webster, G. Nelson, N. Abeyrathna, D. Kunkel, <strong>B. L. Long-Fox</strong>, J. Portmann, C. Pittman, M. Sheik, M. Lomas, and J. L. Pandey. (2024).
-        BIOFAIR Data Network’s Listening Sessions for Engagement and Data Integration.
-        <em>Biodiversity Information Science and Standards</em> 8:e136104.
-        <span class="pub-actions"><a href="https://doi.org/10.3897/biss.8.136104" target="_blank" rel="noopener">DOI</a></span>
+        <div class="pub-row">
+          <div class="icon-col">🗒️</div>
+          <div class="entry">
+            Ellwood, E. R., A. Bentley, B. M. Thiers, W. E. Moser, G. J. Watkins-Colwell, B. M. Zimkus, A. K. Monfils, N. M. Franz, J. M. Bates, S. Poo, D. L. Contreras, M. S. Webster, G. Nelson, N. Abeyrathna, D. Kunkel, <strong>B. L. Long-Fox</strong>, J. Portmann, C. Pittman, M. Sheik, M. Lomas, and J. L. Pandey. (2024).
+            BIOFAIR Data Network’s Listening Sessions for Engagement and Data Integration. <em>Biodiversity Information Science and Standards</em> 8:e136104.
+            <div class="pub-actions"><a href="https://doi.org/10.3897/biss.8.136104" target="_blank" rel="noopener">DOI</a></div>
+          </div>
+        </div>
       </li>
 
-      <li class="pub-item" data-type="extabs">
-        ✳️ <strong>Long-Fox, B. L.</strong>, A. Andruchow-Colombo, S. Jariwala<span class="student-tag">student</span>, M. A. O’Leary, and T. Z. Berardini. (2024).
-        Addressing Global Biodiversity Challenges: Ensuring Long-Term Sustainability of Morphological Data Collection and Reuse through MorphoBank.
-        <em>Biodiversity Information Science and Standards</em> 8:e135124.
-        <span class="pub-actions"><a href="https://doi.org/10.3897/biss.8.135124" target="_blank" rel="noopener">DOI</a></span>
+      <li class="pub-item" data-type="extabs student">
+        <div class="pub-row">
+          <div class="icon-col">🗒️</div>
+          <div class="entry">
+            <strong>Long-Fox, B. L.</strong>, A. Andruchow-Colombo, S. Jariwala<span class="student-tag">student</span>, M. A. O’Leary, and T. Z. Berardini. (2024).
+            Addressing Global Biodiversity Challenges: Ensuring Long-Term Sustainability of Morphological Data Collection and Reuse through MorphoBank.
+            <em>Biodiversity Information Science and Standards</em> 8:e135124.
+            <div class="pub-actions"><a href="https://doi.org/10.3897/biss.8.135124" target="_blank" rel="noopener">DOI</a></div>
+          </div>
+        </div>
       </li>
 
+      <!-- 2022 -->
+      <li class="pub-item" data-type="article">
+        <div class="pub-row">
+          <div class="icon-col"></div>
+          <div class="entry">
+            Anderson, L. C.*, <strong>B. L. Long-Fox*</strong>, A. T. Paterson, and A. S. Engel. (2022).
+            Testing live and live-dead intraspecific morphometric comparisons as proxies for seagrass stability.
+            <em>Frontiers in Ecology and Evolution</em>.
+            <div class="pub-actions"><a href="https://doi.org/10.3389/fevo.2022.933486" target="_blank" rel="noopener">DOI</a></div>
+            <div class="pub-meta">* co-first authors.</div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Conference Papers (integrated) -->
+      <li class="pub-item" data-type="conf">
+        <div class="pub-row">
+          <div class="icon-col">📘</div>
+          <div class="entry">
+            Kunza, L. A., <strong>B. L. Long-Fox</strong>, and L. A. Roberts. (2025).
+            Utilizing Campus Engagement for the Development of an ADVANCE Faculty Leadership Initiative. <em>CoNECD</em>, San Antonio, TX.
+            <div class="pub-actions"><a href="https://peer.asee.org/54127" target="_blank" rel="noopener">Proceedings</a></div>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub-item" data-type="conf">
+        <div class="pub-row">
+          <div class="icon-col">📘</div>
+          <div class="entry">
+            Surovek, A., <strong>B. L. Long-Fox</strong>, A. Williams, S. E. Rácz, and L. A. Kunza. (2023).
+            Work in Progress: Serendipity and Synergy in Promoting Equity. <em>ASEE Annual Conference</em>.
+            <div class="pub-actions"><a href="https://strategy.asee.org/44352" target="_blank" rel="noopener">Proceedings</a></div>
+          </div>
+        </div>
+      </li>
     </ul>
 
     <!-- Other Outputs -->
-    <h2>Other Outputs</h2>
+    <div class="subsection">
+      <h2>Other Outputs</h2>
 
-    <h3>Theses &amp; Dissertations</h3>
-    <ul class="pub-list">
-      <li class="pub-item">
-        <strong>Long-Fox, B. L.</strong> (2022).
-        Phylogenetic controls on shell morphology in the chemosymbiotic Lucinidae (Bivalvia).
-        PhD Dissertation, South Dakota School of Mines and Technology. ProQuest 29167710.
-      </li>
-      <li class="pub-item">
-        <strong>Long, B. L.</strong> (2016).
-        Geometric morphometric analyses of environment related shell variation in <em>Stewartia floridana</em> (Bivalvia: Lucinidae).
-        MS Thesis, South Dakota School of Mines and Technology. ProQuest 29209248.
-      </li>
-    </ul>
+      <h3>Theses &amp; Dissertations</h3>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <div class="pub-row">
+            <div class="icon-col"></div>
+            <div class="entry">
+              <strong>Long-Fox, B. L.</strong> (2022). Phylogenetic controls on shell morphology in the chemosymbiotic Lucinidae (Bivalvia).
+              PhD Dissertation, South Dakota School of Mines and Technology. ProQuest 29167710.
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <div class="pub-row">
+            <div class="icon-col"></div>
+            <div class="entry">
+              <strong>Long, B. L.</strong> (2016). Geometric morphometric analyses of environment related shell variation in
+              <em>Stewartia floridana</em> (Bivalvia: Lucinidae). MS Thesis, South Dakota School of Mines and Technology. ProQuest 29209248.
+            </div>
+          </div>
+        </li>
+      </ul>
 
-    <h3>Datasets</h3>
-    <ul class="pub-list">
-      <li class="pub-item">Jariwala, S.<span class="student-tag">student</span>, <strong>B. L. Long-Fox</strong>, and T. Z. Berardini. 2025. <em>morphobankorg/MatrixCurator</em>. Zenodo. <a href="https://doi.org/10.5281/zenodo.15960992" target="_blank" rel="noopener">DOI</a></li>
-      <li class="pub-item"><strong>Long-Fox, B. L.</strong> 2025. A Morphological Character Matrix… MorphoBank. <a href="http://dx.doi.org/10.7934/P4896" target="_blank" rel="noopener">P4896</a></li>
-      <li class="pub-item"><strong>Long-Fox, B. L.</strong> 2025. Enrollment Trends… Zenodo. <a href="https://doi.org/10.5281/zenodo.14938217" target="_blank" rel="noopener">DOI</a></li>
-      <li class="pub-item"><strong>Long-Fox, B. L.</strong> 2025. Phylogenetic Signal… Zenodo. <a href="https://doi.org/10.5281/zenodo.14649181" target="_blank" rel="noopener">DOI</a></li>
-      <li class="pub-item"><strong>Long-Fox, B. L.</strong> 2023. Project 4303… MorphoBank. <a href="http://dx.doi.org/10.7934/P4303" target="_blank" rel="noopener">P4303</a></li>
-    </ul>
+      <h3>Datasets</h3>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <div class="pub-row">
+            <div class="icon-col"></div>
+            <div class="entry">
+              Jariwala, S.<span class="student-tag">student</span>, <strong>B. L. Long-Fox</strong>, and T. Z. Berardini. 2025.
+              <em>morphobankorg/MatrixCurator</em>. Zenodo.
+              <a href="https://doi.org/10.5281/zenodo.15960992" target="_blank" rel="noopener">DOI</a>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <div class="pub-row">
+            <div class="icon-col"></div>
+            <div class="entry">
+              <strong>Long-Fox, B. L.</strong> 2025. A Morphological Character Matrix… MorphoBank.
+              <a href="http://dx.doi.org/10.7934/P4896" target="_blank" rel="noopener">P4896</a>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <div class="pub-row">
+            <div class="icon-col"></div>
+            <div class="entry">
+              <strong>Long-Fox, B. L.</strong> 2025. Enrollment Trends… Zenodo.
+              <a href="https://doi.org/10.5281/zenodo.14938217" target="_blank" rel="noopener">DOI</a>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <div class="pub-row">
+            <div class="icon-col"></div>
+            <div class="entry">
+              <strong>Long-Fox, B. L.</strong> 2025. Phylogenetic Signal… Zenodo.
+              <a href="https://doi.org/10.5281/zenodo.14649181" target="_blank" rel="noopener">DOI</a>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <div class="pub-row">
+            <div class="icon-col"></div>
+            <div class="entry">
+              <strong>Long-Fox, B. L.</strong> 2023. Project 4303… MorphoBank.
+              <a href="http://dx.doi.org/10.7934/P4303" target="_blank" rel="noopener">P4303</a>
+            </div>
+          </div>
+        </li>
+      </ul>
 
-    <h3>Maps</h3>
-    <ul class="pub-list">
-      <li class="pub-item">Allen, S., <strong>B. L. Long</strong>, and J. Holbrook. (2013). Nemaha 7.5’ Quadrangle… University of South Dakota Press. (Link may require archive)</li>
-      <li class="pub-item"><strong>Long, B. L.</strong>, S. Allen, and J. Holbrook. (2013). Langdon 7.5’ Quadrangle… University of South Dakota Press. (Link may require archive)</li>
-    </ul>
+      <h3>Maps</h3>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <div class="pub-row"><div class="icon-col"></div>
+            <div class="entry">Allen, S., <strong>B. L. Long</strong>, and J. Holbrook. (2013). Nemaha 7.5’ Quadrangle… University of South Dakota Press. (Link may require archive)</div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <div class="pub-row"><div class="icon-col"></div>
+            <div class="entry"><strong>Long, B. L.</strong>, S. Allen, and J. Holbrook. (2013). Langdon 7.5’ Quadrangle… University of South Dakota Press. (Link may require archive)</div>
+          </div>
+        </li>
+      </ul>
 
-    <h3>Editorials</h3>
-    <ul class="pub-list">
-      <li class="pub-item"><strong>Long-Fox, B. L.</strong> (2025). Data sharing at <em>Historical Biology</em>. 1–3. <a href="http://dx.doi.org/10.1080/08912963.2025.2474294" target="_blank" rel="noopener">DOI</a></li>
-    </ul>
+      <h3>Editorials</h3>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <div class="pub-row"><div class="icon-col"></div>
+            <div class="entry"><strong>Long-Fox, B. L.</strong> (2025). Data sharing at <em>Historical Biology</em>. 1–3. <a href="http://dx.doi.org/10.1080/08912963.2025.2474294" target="_blank" rel="noopener">DOI</a></div>
+          </div>
+        </li>
+      </ul>
 
-    <h3>Blogs</h3>
-    <ul class="pub-list">
-      <li class="pub-item"><strong>Long-Fox, B. L.</strong> (2025). Beyond the Grant: Sustaining a Culture of Change. The ADVANCE Journal. <a href="https://www.advancejournal.org/post/3146-beyond-the-grant-sustaining-a-culture-of-change" target="_blank" rel="noopener">Link</a></li>
-      <li class="pub-item"><strong>Long-Fox, B. L.</strong> (2015). Morphology. Museum of Geology Blog. <a href="https://mogcollections.wordpress.com/2015/02/06/morphology/" target="_blank" rel="noopener">Link</a></li>
-      <li class="pub-item"><strong>Long-Fox, B. L.</strong> (2015). Symbiosis. Museum of Geology Blog. <a href="https://mogcollections.wordpress.com/2015/01/23/symbiosis/" target="_blank" rel="noopener">Link</a></li>
-    </ul>
+      <h3>Blogs</h3>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <div class="pub-row"><div class="icon-col"></div>
+            <div class="entry"><strong>Long-Fox, B. L.</strong> (2025). Beyond the Grant: Sustaining a Culture of Change. The ADVANCE Journal. <a href="https://www.advancejournal.org/post/3146-beyond-the-grant-sustaining-a-culture-of-change" target="_blank" rel="noopener">Link</a></div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <div class="pub-row"><div class="icon-col"></div>
+            <div class="entry"><strong>Long-Fox, B. L.</strong> (2015). Morphology. Museum of Geology Blog. <a href="https://mogcollections.wordpress.com/2015/02/06/morphology/" target="_blank" rel="noopener">Link</a></div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <div class="pub-row"><div class="icon-col"></div>
+            <div class="entry"><strong>Long-Fox, B. L.</strong> (2015). Symbiosis. Museum of Geology Blog. <a href="https://mogcollections.wordpress.com/2015/01/23/symbiosis/" target="_blank" rel="noopener">Link</a></div>
+          </div>
+        </li>
+      </ul>
+    </div>
 
     <!-- Bottom wave -->
     <div class="wave-bottom" aria-hidden="true">
