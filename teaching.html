@@ -3,12 +3,74 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Teaching</title>
-  <meta name="description" content="Philosophy and courses taught.">
+  <title>Teaching | Brooke Long-Fox</title>
+  <meta name="description" content="Teaching philosophy, courses, and materials by Brooke Long-Fox — inclusive, research-centered, and open-science grounded.">
   <link rel="stylesheet" href="assets/style.css">
+  <style>
+    :root {
+      --sea-green: #04A788;
+      --deep-blue: #0e1116;
+      --light-bg: #f8fafa;
+      --wave-opacity: 0.25;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      margin: 0; padding: 0; background: var(--light-bg); color: #222;
+    }
+
+    /* --- Navigation --- */
+    nav { background: var(--deep-blue); color: #fff; padding: 0.75rem 2rem; }
+    nav .inner {
+      display: flex; justify-content: space-between; align-items: center;
+      max-width: 1100px; margin: 0 auto;
+    }
+    nav .brand { font-weight: 600; color: #fff; text-decoration: none; font-size: 1.2rem; }
+    nav .brand .dot { background: var(--sea-green); width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+    nav .links a { color: #fff; text-decoration: none; margin-left: 1.2rem; font-size: 0.95rem; transition: color 0.2s ease-in-out; }
+    nav .links a:hover, nav .links a[aria-current="page"] { color: var(--sea-green); }
+
+    /* --- Header --- */
+    header.hero {
+      background: linear-gradient(90deg, var(--deep-blue), #033);
+      color: #fff; padding: 3rem 1rem 0; text-align: center; position: relative; overflow: hidden;
+    }
+    header.hero h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    header.hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 2rem; color: #cfe8e5; }
+
+    /* --- Wave divider (top) --- */
+    .wave { position: relative; height: 60px; overflow: hidden; line-height: 0; }
+    .wave svg { position: relative; display: block; width: calc(100% + 1.3px); height: 60px; }
+    .wave .shape-fill { fill: var(--sea-green); opacity: 0.4; }
+
+    /* --- Content --- */
+    .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+    h2, h3 { color: var(--deep-blue); }
+    a { color: var(--sea-green); text-decoration: none; transition: color 0.2s ease-in-out; }
+    a:hover { text-decoration: underline; color: #029f7f; }
+
+    /* --- Bottom wave (modern inverted) --- */
+    .wave-bottom {
+      position: relative; height: 70px; line-height: 0; overflow: hidden; margin-top: 2rem;
+    }
+    .wave-bottom svg { position: relative; display: block; width: calc(100% + 1.3px); height: 70px; transform: rotate(180deg); }
+    .wave-bottom .shape-fill { fill: var(--sea-green); opacity: 0.35; }
+
+    /* --- Footer --- */
+    footer { background: var(--deep-blue); color: #fff; padding: 1.5rem 2rem; }
+    footer .container {
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    footer .badges { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    footer .badges a, footer .badges span {
+      background: var(--sea-green); color: #fff; padding: 0.35rem 0.6rem; border-radius: 4px; font-size: 0.9rem; text-decoration: none;
+    }
+    footer p a { color: var(--sea-green); text-decoration: none; }
+  </style>
 </head>
 <body>
 
+<!-- NAVIGATION -->
 <nav aria-label="Primary">
   <div class="inner">
     <a class="brand" href="index.html" aria-label="Home">
@@ -16,7 +78,7 @@
     </a>
     <div class="links">
       <a href="research.html">Research</a>
-      <a href="teaching.html">Teaching</a>
+      <a href="teaching.html" aria-current="page">Teaching</a>
       <a href="people.html">People</a>
       <a href="publications.html">Publications</a>
       <a href="news.html">News</a>
@@ -25,39 +87,59 @@
   </div>
 </nav>
 
+<!-- HEADER -->
 <header class="hero">
   <div class="container">
     <h1>Teaching</h1>
-    <p class="lead">Philosophy and courses taught.</p>
+    <p>Inclusive pedagogy, authentic research experiences, and open, reproducible science.</p>
+  </div>
+
+  <!-- Wave divider (top) -->
+  <div class="wave" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M985.66,83.29c-56.74,8.79-113.46,17.86-170.2,26.08-91.47,13.65-182.94,27.11-274.41,28.59-93.59,1.52-187.19-9.44-280.78-20.52C169.07,106.57,84.54,95.83,0,85.09V0H1200V27.35C1117.42,48.88,1058.2,74.5,985.66,83.29Z" class="shape-fill"></path>
+    </svg>
   </div>
 </header>
+
+<!-- MAIN CONTENT -->
 <main>
   <div class="container">
-    
-<h2>Teaching Philosophy</h2>
-<p>Write your philosophy here: inclusive pedagogy, authentic research experiences, reproducible science, and open practices.</p>
 
-<h2>Courses Taught</h2>
-<ul>
-  <li><strong>Reproducible Data & FAIR Workflows (R/Python)</strong> — Syllabus [link]</li>
-  <li><strong>Biogeochemistry of Flowing Waters</strong> — Syllabus [link]</li>
-  <li><strong>Quantitative Morphology & Phylogenetics</strong> — Syllabus [link]</li>
-  <li><strong>Inclusive Leadership in STEM</strong> — Syllabus [link]</li>
-</ul>
+    <h2>Teaching Philosophy</h2>
+    <p>Write your philosophy here: inclusive pedagogy, authentic research experiences, reproducible science, and open practices.</p>
+
+    <h2>Courses Taught</h2>
+    <ul>
+      <li><strong>Reproducible Data &amp; FAIR Workflows (R/Python)</strong> — Syllabus [link]</li>
+      <li><strong>Biogeochemistry of Flowing Waters</strong> — Syllabus [link]</li>
+      <li><strong>Quantitative Morphology &amp; Phylogenetics</strong> — Syllabus [link]</li>
+      <li><strong>Inclusive Leadership in STEM</strong> — Syllabus [link]</li>
+    </ul>
+
+    <!-- Modern inverted wave before footer -->
+    <div class="wave-bottom" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44C200.22,76.61,79.05,96.79,0,108.29V120H1200V0C1130.9,14.32,1061.8,28.64,970.68,39.46,855,53.37,740.29,60.6,625.58,60.43,524.18,60.28,422.78,40.53,321.39,56.44Z" class="shape-fill"></path>
+      </svg>
+    </div>
 
   </div>
 </main>
-<footer class="footer">
-  <div class="container small">
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
     <div class="badges">
-      <span class="badge" href="https://orcid.org/0000-0002-2718-647X" target="_blank" rel="noopener">ORCID</span>
-      <span class="badge" href="https://scholar.google.com/citations?user=jc7uD0sAAAAJ&hl=en&oi=sra" target="_blank" rel="noopener">Google Scholar</span>
-      <span class="badge" href="https://www.researchgate.net/profile/Brooke-Long-Fox" target="_blank" rel="noopener">ResearchGate</span>
-      <span class="badge" href="https://www.linkedin.com/in/brookelongfox" target="_blank" rel="noopener">LinkedIn</span>
-      <span class="badge">GitHub</span>
+      <a href="https://orcid.org/0000-0002-2718-647X" target="_blank" rel="noopener">ORCID</a>
+      <a href="https://scholar.google.com/citations?user=jc7uD0sAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://www.researchgate.net/profile/Brooke-Long-Fox" target="_blank" rel="noopener">ResearchGate</a>
+      <a href="https://www.linkedin.com/in/brookelongfox" target="_blank" rel="noopener">LinkedIn</a>
+      <span>GitHub</span>
     </div>
-    <p>© 2025 Brooke L Long-Fox • <a href="mailto:brooke.long-fox@sdsmt.edu" style="text-decoration:none;">Contact</a> • 🌊 Connecting biodiversity, data, and people.</p>
+    <p>© 2025 Brooke L. Long-Fox • <a href="mailto:brooke.long-fox@sdsmt.edu">Contact</a> • 🌊 Connecting biodiversity, data, and people.</p>
   </div>
 </footer>
+
 </body>
 </html>
