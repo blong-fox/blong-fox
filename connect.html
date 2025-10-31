@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Connect | Brooke Long-Fox</title>
-  <meta name="description" content="Connect with Brooke Long-Fox — email, social media, and scholarly profiles.">
+  <meta name="description" content="Connect with Brooke Long-Fox — email, LinkedIn, ORCID, Google Scholar, ResearchGate, and organizations.">
   <link rel="stylesheet" href="assets/style.css">
   <style>
     :root {
@@ -21,10 +21,7 @@
 
     /* --- Navigation --- */
     nav { background: var(--deep-blue); color: #fff; padding: 0.75rem 2rem; }
-    nav .inner {
-      display: flex; justify-content: space-between; align-items: center;
-      max-width: 1100px; margin: 0 auto;
-    }
+    nav .inner { display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; }
     nav .brand { font-weight: 600; color: #fff; text-decoration: none; font-size: 1.2rem; }
     nav .brand .dot { background: var(--sea-green); width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 6px; }
     nav .links a { color: #fff; text-decoration: none; margin-left: 1.2rem; font-size: 0.95rem; transition: color 0.2s ease-in-out; }
@@ -72,29 +69,49 @@
     }
     .btn:hover { background: var(--sea-green); color: #fff; text-decoration: none; }
 
-    /* --- Icon bubbles (simple) --- */
+    /* --- Icon bubbles --- */
     .icon {
       width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
       background: rgba(4,167,136,.12); border: 1px solid rgba(4,167,136,.3); margin-right: .4rem;
       font-weight: 700; color: var(--sea-green);
     }
 
-    /* --- Bottom wave (modern inverted) --- */
-    .wave-bottom {
-      position: relative; height: 70px; line-height: 0; overflow: hidden; margin-top: 2rem;
+    /* --- Organizations --- */
+    .orgs { padding: 1rem 0 0; }
+    .org-grid { display:grid; gap:1rem; grid-template-columns: repeat(12, 1fr); }
+    .org-card {
+      grid-column: span 12; display:grid; gap:.8rem; align-items:center;
+      grid-template-columns: 90px 1fr auto; padding: .9rem 1rem; background:#fff;
+      border:2px solid rgba(4,167,136,.15); border-radius:12px; transition:border-color .25s, box-shadow .25s;
     }
+    .org-card:hover { border-color:#04A788; box-shadow:0 4px 18px rgba(4,167,136,.12); }
+    .org-media {
+      width:72px; height:72px; display:flex; align-items:center; justify-content:center;
+      border-radius:12px; background:linear-gradient(135deg, #04A78822, #04A78811);
+      border:1.5px solid rgba(4,167,136,.25); font-weight:700; color:#0e1116;
+    }
+    .org-body h3 { margin:.1rem 0 .3rem; font-size:1.02rem; }
+    .org-roles { display:flex; flex-wrap:wrap; gap:.35rem; margin:.1rem 0 .4rem; }
+    .role-chip {
+      display:inline-block; font-size:.8rem; padding:.15rem .5rem; border-radius:999px;
+      background:rgba(4,167,136,.12); border:1px solid rgba(4,167,136,.25);
+    }
+    .org-cta .btn { white-space: nowrap; }
+    @media (max-width: 900px){
+      .org-card { grid-template-columns: 72px 1fr; }
+      .org-cta { grid-column: 2 / -1; }
+    }
+
+    /* --- Bottom wave --- */
+    .wave-bottom { position: relative; height: 70px; line-height: 0; overflow: hidden; margin-top: 2rem; }
     .wave-bottom svg { position: relative; display: block; width: calc(100% + 1.3px); height: 70px; transform: rotate(180deg); }
     .wave-bottom .shape-fill { fill: var(--sea-green); opacity: 0.35; }
 
     /* --- Footer --- */
     footer { background: var(--deep-blue); color: #fff; padding: 1.5rem 2rem; }
-    footer .container {
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
-    }
+    footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
     footer .badges { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    footer .badges a, footer .badges span {
-      background: var(--sea-green); color: #fff; padding: 0.35rem 0.6rem; border-radius: 4px; font-size: 0.9rem; text-decoration: none;
-    }
+    footer .badges a, footer .badges span { background: var(--sea-green); color: #fff; padding: 0.35rem 0.6rem; border-radius: 4px; font-size: 0.9rem; text-decoration: none; }
     footer p a { color: var(--sea-green); text-decoration: none; }
   </style>
 </head>
@@ -110,7 +127,6 @@
       <a href="research.html">Research</a>
       <a href="teaching.html">Teaching</a>
       <a href="people.html">People</a>
-      <a href="bio.html">Bio</a>
       <a href="publications.html">Publications</a>
       <a href="news.html">News</a>
       <a href="connect.html" aria-current="page">Connect</a>
@@ -122,7 +138,7 @@
 <header class="hero">
   <div class="container">
     <h1>Connect</h1>
-    <p>Say hello, follow along, or collaborate. Socials and scholarly profiles below.</p>
+    <p>Say hello, follow along, or collaborate. Professional socials, scholar profiles, and organizations.</p>
   </div>
 
   <!-- Wave divider (top) -->
@@ -146,37 +162,13 @@
           <a class="btn" href="https://www.linkedin.com/in/brookelongfox" target="_blank" rel="noopener">/in/brookelongfox</a>
         </div>
       </article>
-
-      <article class="card">
-        <h3><span class="icon">B</span>Bluesky</h3>
-        <p class="meta">Science, open data, and lab notes.</p>
-        <div class="actions">
-          <a class="btn" href="#" target="_blank" rel="noopener">@your-handle</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h3><span class="icon">X</span>X / Twitter</h3>
-        <p class="meta">Occasional threads and conference live-notes.</p>
-        <div class="actions">
-          <a class="btn" href="#" target="_blank" rel="noopener">@your-handle</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h3><span class="icon">IG</span>Instagram</h3>
-        <p class="meta">Fieldwork snapshots and lab life.</p>
-        <div class="actions">
-          <a class="btn" href="#" target="_blank" rel="noopener">@your-handle</a>
-        </div>
-      </article>
     </section>
 
     <h2>Scholar Profiles</h2>
     <section class="grid" aria-label="Scholarly profiles">
       <article class="card">
         <h3><span class="icon">O</span>ORCID</h3>
-        <p class="meta">Persistent identifier for publications and funding.</p>
+        <p class="meta">Persistent ID for publications and funding.</p>
         <div class="actions">
           <a class="btn" href="https://orcid.org/0000-0002-2718-647X" target="_blank" rel="noopener">0000-0002-2718-647X</a>
         </div>
@@ -186,7 +178,7 @@
         <h3><span class="icon">G</span>Google Scholar</h3>
         <p class="meta">Publications and citations.</p>
         <div class="actions">
-          <a class="btn" href="https://scholar.google.com/citations?user=jc7uD0sAAAAJ" target="_blank" rel="noopener">View profile</a>
+          <a class="btn" href="https://scholar.google.com/citations?user=jc7uD0sAAAAJ" target="_blank" rel="noopener">Profile</a>
         </div>
       </article>
 
@@ -194,15 +186,7 @@
         <h3><span class="icon">RG</span>ResearchGate</h3>
         <p class="meta">Preprints and project updates.</p>
         <div class="actions">
-          <a class="btn" href="https://www.researchgate.net/profile/Brooke-Long-Fox" target="_blank" rel="noopener">Profile</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h3><span class="icon">GH</span>GitHub</h3>
-        <p class="meta">Code, data workflows, and templates.</p>
-        <div class="actions">
-          <a class="btn" href="#" target="_blank" rel="noopener">github.com/your-handle</a>
+          <a class="btn" href="https://www.researchgate.net/profile/Brooke-Long-Fox" target="_blank" rel="noopener">@Brooke-Long-Fox</a>
         </div>
       </article>
     </section>
@@ -217,17 +201,58 @@
           <button class="btn" id="copyEmail" type="button" aria-live="polite">Copy address</button>
         </div>
       </article>
+    </section>
 
-      <!-- Optional contact form (mailto). Uncomment if you want a quick form.
-      <article class="card">
-        <h3><span class="icon">✉️</span>Quick message</h3>
-        <form action="mailto:brooke.long-fox@sdsmt.edu" method="post" enctype="text/plain">
-          <p><label>Name<br><input name="name" required style="width:100%;padding:.55rem;border:1px solid #ddd;border-radius:8px;"></label></p>
-          <p><label>Message<br><textarea name="message" rows="4" required style="width:100%;padding:.55rem;border:1px solid #ddd;border-radius:8px;"></textarea></label></p>
-          <p><button class="btn" type="submit">Open email draft</button></p>
-        </form>
-      </article>
-      -->
+    <section class="orgs">
+      <h2>Organizations &amp; Leadership</h2>
+      <p class="small">Societies and communities I serve and collaborate with.</p>
+
+      <div class="org-grid">
+        <!-- SORTEE -->
+        <article class="org-card">
+          <div class="org-media" aria-hidden="true">SORTEE</div>
+          <div class="org-body">
+            <h3><a href="https://sortee.org/" target="_blank" rel="noopener">Society for Open, Reliable, and Transparent Ecology &amp; Evolution (SORTEE)</a></h3>
+            <div class="org-roles">
+              <span class="role-chip">DEI Chair</span>
+            </div>
+            <p class="small">Improving transparency, reliability, and inclusivity in EEB through open-science practice.</p>
+          </div>
+          <div class="org-cta">
+            <a class="btn" href="https://sortee.org/" target="_blank" rel="noopener">Visit SORTEE</a>
+          </div>
+        </article>
+
+        <!-- GWIS -->
+        <article class="org-card">
+          <div class="org-media" aria-hidden="true">GWIS</div>
+          <div class="org-body">
+            <h3><a href="https://www.gwis.org/" target="_blank" rel="noopener">Graduate Women in Science (GWIS)</a></h3>
+            <div class="org-roles">
+              <span class="role-chip">President (2025–2026)</span>
+            </div>
+            <p class="small">Advancing women in STEM via fellowships, chapters, mentoring, and leadership programs.</p>
+          </div>
+          <div class="org-cta">
+            <a class="btn" href="https://www.gwis.org/" target="_blank" rel="noopener">Join GWIS</a>
+          </div>
+        </article>
+
+        <!-- SSB -->
+        <article class="org-card">
+          <div class="org-media" aria-hidden="true">SSB</div>
+          <div class="org-body">
+            <h3><a href="https://www.systbio.org/" target="_blank" rel="noopener">Society of Systematic Biologists (SSB)</a></h3>
+            <div class="org-roles">
+              <span class="role-chip">DEIC Member</span>
+            </div>
+            <p class="small">Promoting integrative study of biological diversity, phylogeny, and evolution.</p>
+          </div>
+          <div class="org-cta">
+            <a class="btn" href="https://www.systbio.org/" target="_blank" rel="noopener">Explore SSB</a>
+          </div>
+        </article>
+      </div>
     </section>
 
     <!-- Modern inverted wave before footer -->
@@ -248,7 +273,6 @@
       <a href="https://scholar.google.com/citations?user=jc7uD0sAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
       <a href="https://www.researchgate.net/profile/Brooke-Long-Fox" target="_blank" rel="noopener">ResearchGate</a>
       <a href="https://www.linkedin.com/in/brookelongfox" target="_blank" rel="noopener">LinkedIn</a>
-      <span>GitHub</span>
     </div>
     <p>© 2025 Brooke L. Long-Fox • <a href="mailto:brooke.long-fox@sdsmt.edu">Contact</a> • 🌊 Connecting biodiversity, data, and people.</p>
   </div>
