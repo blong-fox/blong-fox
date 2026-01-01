@@ -5,89 +5,152 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Brooke Long-Fox | Research Lab</title>
   <meta name="description" content="Equitable, FAIR science for living waters and living archives.">
-  <link rel="stylesheet" href="assets/style.css">
+
   <style>
     :root{
       --sea-green:#04A788;
       --deep-blue:#0e1116;
       --light-bg:#f8fafa;
     }
-    body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;background:var(--light-bg);color:#222}
+
+    body{
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      margin:0;background:var(--light-bg);color:#222
+    }
+
     /* Nav */
     nav{background:var(--deep-blue);color:#fff;padding:.75rem 2rem}
     nav .inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
     nav .brand{color:#fff;text-decoration:none;font-weight:600;font-size:1.2rem}
     nav .brand .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--sea-green);margin-right:6px}
-    nav .links a{color:#fff;text-decoration:none;margin-left:1.2rem;font-size:.95rem;transition:color .2s}
-    nav .links a:hover, nav .links a[aria-current="page"]{color:var(--sea-green)}
+    nav .links a{color:#fff;text-decoration:none;margin-left:1.2rem;font-size:.95rem}
+    nav .links a:hover{color:var(--sea-green)}
 
     /* Hero */
     header.hero{
-      background:linear-gradient(90deg,var(--deep-blue),#033);
-      color:#fff;padding:3.5rem 1rem 2.25rem;text-align:center;position:relative;overflow:hidden
+      position:relative;
+      color:#fff;
+      overflow:hidden;
     }
-    header.hero h1{font-size:2.15rem;margin:.25rem auto}
-    header.hero p.lead{font-size:1.12rem;color:#cfe8e5;max-width:760px;margin:.5rem auto 1.2rem}
-    .cta{display:flex;justify-content:center;gap:.6rem;flex-wrap:wrap}
-    .btn{display:inline-block;border:2px solid var(--sea-green);color:#fff;background:transparent;border-radius:999px;padding:.5rem .95rem;text-decoration:none}
-    .btn.filled{background:var(--sea-green);color:#fff}
-    .btn:hover{background:var(--sea-green);color:#fff}
+
+    /* HERO IMAGE PLACEHOLDER
+       Replace background image URL later:
+       url("assets/images/hero.jpg")
+    */
+    .hero-bg{
+      background:
+        linear-gradient(90deg, rgba(14,17,22,.9), rgba(14,17,22,.55)),
+        url("");
+      background-size:cover;
+      background-position:center;
+      min-height:420px;
+      display:flex;
+      align-items:center;
+    }
+
+    .hero-inner{
+      max-width:1100px;
+      margin:0 auto;
+      padding:3.5rem 1.5rem 2.25rem;
+    }
+
+    header.hero h1{font-size:2.3rem;margin:0 0 .6rem 0}
+    header.hero p.lead{
+      font-size:1.1rem;
+      max-width:760px;
+      color:#d7f3ee;
+      margin:0 0 1.2rem 0
+    }
+
+    .cta{display:flex;gap:.6rem;flex-wrap:wrap}
+    .btn{
+      display:inline-block;
+      border:2px solid var(--sea-green);
+      color:#fff;
+      background:transparent;
+      border-radius:999px;
+      padding:.5rem .95rem;
+      text-decoration:none
+    }
+    .btn.filled{background:var(--sea-green)}
+    .btn:hover{background:var(--sea-green)}
 
     /* Wave */
-    .wave{position:relative;height:60px;line-height:0;overflow:hidden}
-    .wave svg{position:relative;display:block;width:calc(100% + 1.3px);height:60px}
+    .wave{height:60px;line-height:0;overflow:hidden}
+    .wave svg{width:calc(100% + 1.3px);height:60px}
     .wave .shape-fill{fill:var(--sea-green);opacity:.4}
 
-    /* Container */
+    /* Layout */
     .container{max-width:1100px;margin:0 auto;padding:2rem 1.5rem}
     h2,h3{color:var(--deep-blue)}
     a{color:var(--sea-green);text-decoration:none}
     a:hover{text-decoration:underline}
-
-    /* Cards grid */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
-    .card{
-      background:#fff;border:2px solid rgba(4,167,136,.15);border-radius:14px;padding:1rem 1.1rem;
-      transition:border-color .25s,box-shadow .25s,transform .05s;display:flex;flex-direction:column;gap:.45rem
-    }
-    .card:hover{border-color:var(--sea-green);box-shadow:0 4px 18px rgba(4,167,136,.15);transform:translateY(-1px)}
-    .card h3{margin:.2rem 0;font-size:1.06rem}
     .small{font-size:.92rem;color:#333}
 
-    /* Pillars list */
-    .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.9rem}
-    .pillars .chip{
-      display:flex;align-items:flex-start;gap:.6rem;background:#fff;border:2px solid rgba(4,167,136,.15);
-      border-radius:12px;padding:.75rem .85rem
+    /* Cards */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+    .card{
+      background:#fff;
+      border:2px solid rgba(4,167,136,.15);
+      border-radius:14px;
+      padding:1rem 1.1rem;
+      transition:.25s;
+      display:flex;
+      flex-direction:column;
+      gap:.45rem
     }
-    .pillars .emoji{font-size:1.1rem}
+    .card:hover{
+      border-color:var(--sea-green);
+      box-shadow:0 4px 18px rgba(4,167,136,.15);
+      transform:translateY(-1px)
+    }
 
-    /* Featured news/publications */
-    .mini-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
-    .meta{font-size:.9rem;color:#555}
-    .tag{display:inline-block;font-size:.78rem;border:1px solid rgba(4,167,136,.25);background:rgba(4,167,136,.08);border-radius:999px;padding:.1rem .45rem;margin-right:.25rem;color:#0e1116}
+    /* Pillars */
+    .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
 
-    /* Orgs strip */
-    .orgs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
-    .org{display:flex;gap:.75rem;align-items:flex-start;background:#fff;border:2px solid rgba(4,167,136,.15);border-radius:12px;padding:.8rem .95rem}
-    .org .badge{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;
-      background:linear-gradient(135deg,#04A78822,#04A78811);border:1.5px solid rgba(4,167,136,.25);font-weight:700;color:#0e1116}
+    .pillar{
+      display:flex;
+      gap:.9rem;
+      background:#fff;
+      border:2px solid rgba(4,167,136,.15);
+      border-radius:14px;
+      padding:.9rem 1rem;
+      align-items:center
+    }
+
+    /* PILLAR IMAGE PLACEHOLDER
+       Add src later: assets/images/pillar-*.jpg
+    */
+    .pillar img{
+      width:64px;height:64px;
+      border-radius:12px;
+      object-fit:cover;
+      background:#e8f5f2;
+      border:1.5px solid rgba(4,167,136,.25)
+    }
 
     /* Footer */
     footer{background:var(--deep-blue);color:#fff;padding:1.5rem 2rem}
-    footer .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-    footer .badges{display:flex;flex-wrap:wrap;gap:.4rem}
-    footer .badges a, footer .badges span{background:var(--sea-green);color:#fff;padding:.35rem .6rem;border-radius:4px;font-size:.9rem;text-decoration:none}
-    footer p a{color:#fff;text-decoration:none;border-bottom:1px dotted rgba(255,255,255,.6)}
+    footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    footer .badges{display:flex;gap:.4rem;flex-wrap:wrap}
+    footer .badges a{
+      background:var(--sea-green);
+      color:#fff;
+      padding:.35rem .6rem;
+      border-radius:4px;
+      font-size:.9rem;
+      text-decoration:none
+    }
   </style>
 </head>
+
 <body>
 
 <!-- NAV -->
 <nav aria-label="Primary">
   <div class="inner">
-    <a class="brand" href="index.html" aria-label="Home">
-      <span class="dot" aria-hidden="true"></span> Brooke Long-Fox
+    <a class="brand" href="index.html">
+      <span class="dot"></span> Brooke Long-Fox
     </a>
     <div class="links">
       <a href="research.html">Research</a>
@@ -102,17 +165,24 @@
 
 <!-- HERO -->
 <header class="hero">
-  <div class="container">
-    <h1>Equitable, FAIR science for living waters and living archives</h1>
-    <p class="lead">I study how morphology, symbiosis, and nutrient cycling shape biodiversity and ecosystem resilience—while building open data infrastructure that makes these patterns transparent, reproducible, and useful.</p>
-    <div class="cta">
-      <a class="btn filled" href="publications.html">View publications</a>
-      <a class="btn" href="connect.html">Collaborate / contact</a>
+  <div class="hero-bg">
+    <div class="hero-inner">
+      <h1>Equitable, FAIR science for living waters and living archives</h1>
+      <p class="lead">
+        I connect biodiversity science with open data infrastructure—studying morphology,
+        symbiosis, and nutrient cycling to understand resilience, and building systems that
+        make scientific evidence reusable and trustworthy.
+      </p>
+      <div class="cta">
+        <a class="btn filled" href="research.html">Explore research</a>
+        <a class="btn" href="connect.html">Collaborate / contact</a>
+      </div>
     </div>
   </div>
+
   <div class="wave" aria-hidden="true">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-      <path d="M985.66,83.29c-56.74,8.79-113.46,17.86-170.2,26.08-91.47,13.65-182.94,27.11-274.41,28.59-93.59,1.52-187.19-9.44-280.78-20.52C169.07,106.57,84.54,95.83,0,85.09V0H1200V27.35C1117.42,48.88,1058.2,74.5,985.66,83.29Z" class="shape-fill"></path>
+      <path d="M985.66,83.29c-56.74,8.79-113.46,17.86-170.2,26.08-91.47,13.65-182.94,27.11-274.41,28.59-93.59,1.52-187.19-9.44-280.78-20.52C169.07,106.57,84.54,95.83,0,85.09V0H1200V27.35C1117.42,48.88,1058.2,74.5,985.66,83.29Z" class="shape-fill"/>
     </svg>
   </div>
 </header>
@@ -120,118 +190,45 @@
 <main>
   <div class="container">
 
-    <!-- Quick nav cards -->
-    <section aria-label="Site sections" class="grid">
-      <a class="card" href="research.html">
-        <h3>Research</h3>
-        <p class="small">Morphology &amp; conservation paleobiology, aquatic ecology, PFAS remediation, and FAIR data infrastructure.</p>
-      </a>
-      <a class="card" href="teaching.html">
-        <h3>Teaching</h3>
-        <p class="small">Student-centered, open-science pedagogy; courses and mentoring.</p>
-      </a>
-      <a class="card" href="people.html">
-        <h3>People</h3>
-        <p class="small">Current &amp; former mentees, collaborators, service, and leadership.</p>
-      </a>
-      <a class="card" href="publications.html">
-        <h3>Publications</h3>
-        <p class="small">Peer-reviewed articles, preprints, data notes, reports, and proceedings.</p>
-      </a>
-      <a class="card" href="news.html">
-        <h3>News</h3>
-        <p class="small">Talks, fieldwork, infrastructure releases, and community milestones.</p>
-      </a>
-      <a class="card" href="connect.html">
-        <h3>Connect</h3>
-        <p class="small">Email and scholarly profiles; organizations &amp; leadership.</p>
-      </a>
-    </section>
-
     <!-- Pillars -->
-    <section aria-label="Research pillars" style="margin-top:1.5rem">
+    <section aria-label="Research pillars">
       <h2>What we work on</h2>
+
       <div class="pillars">
-        <div class="chip"><span class="emoji">🧬</span><div><strong>Morphology &amp; evolution</strong><br><span class="small">Phylogenetic signal, lucinid bivalves, live–dead comparisons for conservation paleobiology.</span></div></div>
-        <div class="chip"><span class="emoji">🌊</span><div><strong>Aquatic ecology</strong><br><span class="small">Nutrient dynamics, floodplain reconnection, and large-river resilience.</span></div></div>
-        <div class="chip"><span class="emoji">🧪</span><div><strong>PFAS remediation</strong><br><span class="small">Electrochemical oxidation + ion-exchange treatment trains and scale-up.</span></div></div>
-        <div class="chip"><span class="emoji">🗂️</span><div><strong>Open data infrastructure</strong><br><span class="small">MorphoBank curation, FAIR workflows, and community-driven standards.</span></div></div>
-      </div>
-    </section>
 
-    <!-- Featured (pulls recognizable items already on your site) -->
-    <section aria-label="Featured" style="margin-top:1.6rem">
-      <h2>Featured</h2>
-      <div class="mini-grid">
-        <article class="card">
-          <span class="meta"><span class="tag">Publication</span> Oct 2025</span>
-          <h3>Integrating biological &amp; environmental data to solve key challenges</h3>
-          <p class="small">Community roadmap applying FAIR/CARE principles across biodiversity and environmental data.</p>
-          <p><a href="https://doi.org/10.1093/biosci/biaf150" target="_blank" rel="noopener">Read the BioScience paper →</a></p>
-        </article>
-        <article class="card">
-          <span class="meta"><span class="tag">Community</span> Sep 2025</span>
-          <h3>MorphoBank Connects: recordings now on YouTube</h3>
-          <p class="small">Sessions on FAIR morphology, AI curation, and open publishing.</p>
-          <p><a href="https://www.youtube.com/@morphobank/featured" target="_blank" rel="noopener">Watch the playlist →</a></p>
-        </article>
-        <article class="card">
-          <span class="meta"><span class="tag">GWIS</span> Oct 2025</span>
-          <h3>GWIS Podcast ranked #4 on FeedSpot</h3>
-          <p class="small">Explore conversations advancing women in STEM—and discover other great shows.</p>
-          <p><a href="https://podcast.feedspot.com/women_in_science_podcasts/" target="_blank" rel="noopener">See the list →</a></p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Organizations & leadership (compact) -->
-    <section aria-label="Organizations" style="margin-top:1.6rem">
-      <h2>Organizations &amp; leadership</h2>
-      <div class="orgs">
-        <div class="org">
-          <div class="badge" aria-hidden="true">SORTEE</div>
+        <div class="pillar">
+          <img src="" alt="">
           <div>
-            <strong><a href="https://sortee.org/" target="_blank" rel="noopener">Society for Open, Reliable, and Transparent Ecology &amp; Evolution</a></strong><br>
-            <span class="small">DEI Chair</span>
+            <strong>Biodiversity across time</strong><br>
+            <span class="small">
+              Morphology, symbiosis, and evolution—linking live–dead data and phylogenetic signal
+              to conservation paleobiology.
+            </span>
           </div>
         </div>
-        <div class="org">
-          <div class="badge" aria-hidden="true">GWIS</div>
-          <div>
-            <strong><a href="https://www.gwis.org/" target="_blank" rel="noopener">Graduate Women in Science</a></strong><br>
-            <span class="small">President (2025–2026)</span>
-          </div>
-        </div>
-        <div class="org">
-          <div class="badge" aria-hidden="true">SSB</div>
-          <div>
-            <strong><a href="https://www.systbio.org/" target="_blank" rel="noopener">Society of Systematic Biologists</a></strong><br>
-            <span class="small">DEIC Member</span>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Quick links to profiles -->
-    <section aria-label="Profiles" style="margin-top:1.6rem">
-      <h2>Find me online</h2>
-      <div class="grid">
-        <a class="card" href="https://www.linkedin.com/in/brookelongfox" target="_blank" rel="noopener">
-          <h3>LinkedIn</h3>
-          <p class="small">/in/brookelongfox</p>
-        </a>
-        <a class="card" href="https://orcid.org/0000-0002-2718-647X" target="_blank" rel="noopener">
-          <h3>ORCID</h3>
-          <p class="small">0000-0002-2718-647X</p>
-        </a>
-        <a class="card" href="https://scholar.google.com/citations?user=jc7uD0sAAAAJ" target="_blank" rel="noopener">
-          <h3>Google Scholar</h3>
-          <p class="small">Profile</p>
-        </a>
-        <a class="card" href="https://www.researchgate.net/profile/Brooke-Long-Fox" target="_blank" rel="noopener">
-          <h3>ResearchGate</h3>
-          <p class="small">@Brooke-Long-Fox</p>
-        </a>
+        <div class="pillar">
+          <img src="" alt="">
+          <div>
+            <strong>Resilient waters</strong><br>
+            <span class="small">
+              Nutrient dynamics, floodplain reconnection, and contaminant impacts in rivers and
+              wetlands, including PFAS.
+            </span>
+          </div>
+        </div>
+
+        <div class="pillar">
+          <img src="" alt="">
+          <div>
+            <strong>Open data &amp; evaluation systems</strong><br>
+            <span class="small">
+              FAIR/CARE workflows, community standards, AI-assisted curation, and faculty
+              development aligned with equitable science.
+            </span>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -242,12 +239,11 @@
 <footer>
   <div class="container">
     <div class="badges">
-      <a href="https://orcid.org/0000-0002-2718-647X" target="_blank" rel="noopener">ORCID</a>
-      <a href="https://scholar.google.com/citations?user=jc7uD0sAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
-      <a href="https://www.researchgate.net/profile/Brooke-Long-Fox" target="_blank" rel="noopener">ResearchGate</a>
-      <a href="https://www.linkedin.com/in/brookelongfox" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://orcid.org/0000-0002-2718-647X">ORCID</a>
+      <a href="https://scholar.google.com/">Google Scholar</a>
+      <a href="https://www.linkedin.com/in/brookelongfox">LinkedIn</a>
     </div>
-    <p>© 2025 Brooke L. Long-Fox • <a href="mailto:brooke.long-fox@sdsmt.edu">Contact</a> • 🌊 Connecting biodiversity, data, and people.</p>
+    <p>© 2025 Brooke L. Long-Fox • 🌊 Connecting biodiversity, data, and people.</p>
   </div>
 </footer>
 
